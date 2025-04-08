@@ -4,32 +4,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV</title>
-  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/Pvt6qjHM/cv.png">
+  <title>CV - Svetozar Iliev</title>
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/Pvt6qjHM/cv.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet" />
 
   <style>
     :root {
-      --body-padding: 8px;
-      --ul-padding-left: 30px;
-      --dark-theme-text-color: #8c8c8c;
-      --dark-theme-btns-border-color: #dcdcdc;
+      /* === Base & Layout === */
+      --body-padding: 20px;
+      --content-max-width: 1000px;
+      --section-spacing: 2.5rem;
+      --card-padding: 20px;
+      --grid-gap: 15px;
+      --list-gap: 10px;
+
+      /* === Typography === */
+      --font-primary: "Roboto", sans-serif;
+      --font-secondary: "Poppins", sans-serif;
+      --base-font-size: 16px;
+      /* Adjusted from default */
+      --line-height-base: 1.7;
+      --line-height-heading: 1.3;
+
+      /* === Borders & Shadows === */
+      --border-radius-sm: 4px;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --border-width: 1px;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      /* === Light Theme (Default) === */
+      --light-bg: #f8f9fa;
+      --light-text: #212529;
+      --light-text-secondary: #6c757d;
+      --light-accent: #0056b3;
+      /* Adjusted blue */
+      --light-card-bg: #ffffff;
+      --light-border: #dee2e6;
+      --light-icon-bg: #e9ecef;
+
+      /* === Dark Theme === */
+      --dark-bg: #12121f;
+      /* Darker blue/purple */
+      --dark-text: #e0e0e5;
+      /* Lighter grey */
+      --dark-text-secondary: #a0a0b0;
+      --dark-accent: #4cc9f0;
+      /* Brighter teal/blue */
+      --dark-card-bg: #1a1a2e;
+      /* Slightly lighter card bg */
+      --dark-border: #3a3a5a;
+      --dark-icon-bg: #2a2a4a;
+      --dark-shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+      /* Darker shadow for dark theme */
+
+      /* === Default Theme Variables (Initially Light) === */
+      --bg-color: var(--light-bg);
+      --text-color: var(--light-text);
+      --text-color-secondary: var(--light-text-secondary);
+      --accent-color: var(--light-accent);
+      --card-bg-color: var(--light-card-bg);
+      --border-color: var(--light-border);
+      --icon-bg-color: var(--light-icon-bg);
+      --box-shadow: var(--shadow-md);
+
+      /* === Transitions === */
+      --transition-speed: 0.3s;
+      --transition-func: ease;
+    }
+
+    /* Dark theme overrides */
+    body.dark {
+      --bg-color: var(--dark-bg);
+      --text-color: var(--dark-text);
+      --text-color-secondary: var(--dark-text-secondary);
+      --accent-color: var(--dark-accent);
+      --card-bg-color: var(--dark-card-bg);
+      --border-color: var(--dark-border);
+      --icon-bg-color: var(--dark-icon-bg);
+      --box-shadow: var(--dark-shadow-md);
+    }
+
+    /* === Base Styles === */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
     html {
-      width: 100%;
-      height: 100%;
-      margin: 0;
+      font-size: var(--base-font-size);
+      scroll-behavior: smooth;
     }
 
     body {
-      width: calc(100% - (var(--body-padding) * 2));
-      min-height: calc(100% - (var(--body-padding) * 2));
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
       padding: var(--body-padding);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-primary);
+      line-height: var(--line-height-base);
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 1000px;
-      margin: 0 auto;
+      transition: background-color var(--transition-speed) var(--transition-func),
+        color var(--transition-speed) var(--transition-func);
+    }
+
+    .content-wrapper {
+      width: 100%;
+      max-width: var(--content-max-width);
       position: relative;
     }
 
@@ -37,826 +130,1425 @@
     h2,
     h3,
     h4,
+    h5,
+    h6 {
+      margin: 0 0 0.75em 0;
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      line-height: var(--line-height-heading);
+      color: var(--text-color);
+      /* Ensure headings inherit theme color */
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--text-color-secondary);
+      margin-bottom: 0.5em;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--accent-color);
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.3em;
+    }
+
     p {
-      margin: 0;
+      margin: 0 0 1em 0;
+    }
+
+    b,
+    strong {
+      font-weight: 600;
     }
 
     a {
+      color: var(--accent-color);
       text-decoration: none;
+      transition: color var(--transition-speed) var(--transition-func);
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      border-top: var(--border-width) solid var(--border-color);
+      margin: 2rem 0;
+      width: 100%;
+    }
+
+    hr.inner-hr {
+      width: 60%;
+      margin: 1rem auto 1.5rem auto;
+      border-color: var(--border-color);
+      opacity: 0.5;
+    }
+
+    ul {
+      list-style: none;
+      /* Remove default bullets */
+      padding: 0;
+      margin: 0 0 1em 0;
+      display: grid;
+      gap: var(--list-gap);
+    }
+
+    ul li::before {
+      /* Custom bullet (optional) */
+      content: "▹";
+      color: var(--accent-color);
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    /* === Utility === */
     .m-b-1 {
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem !important;
     }
 
+    .m-b-2 {
+      margin-bottom: 1rem !important;
+    }
+
+    .m-b-3 {
+      margin-bottom: 1.5rem !important;
+    }
+
+    .width-1 {
+      /* Now mostly handled by content-wrapper max-width */
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* === Header === */
     .header {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: var(--section-spacing);
+      text-align: center;
     }
 
     .prof-img {
-      width: 100px;
-      height: 100px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      border: 3px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
     }
 
+    /* === Contacts === */
     .contacts {
       width: 100%;
       display: grid;
       justify-items: center;
-      gap: 8px;
+      gap: var(--grid-gap);
       grid-template-columns: repeat(3, 1fr);
       align-items: center;
-      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
 
     .contact-holder {
-      display: flex;
+      display: inline-flex;
+      /* Use inline-flex for better alignment */
       align-items: center;
-      color: #1600ff;
+      gap: 10px;
+      color: var(--text-color);
+      /* Use theme text color */
+      font-weight: 500;
+    }
+
+    .contact-holder:hover {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .contact-holder:hover .cont-icon {
+      background-color: var(--accent-color);
+    }
+
+    .contact-holder:hover .cont-icon svg path,
+    .contact-holder:hover .cont-icon svg rect {
+      fill: var(--bg-color);
+      /* Invert icon color on hover */
+    }
+
+    /* LinkedIn icon needs specific fill */
+    .contact-holder:hover .cont-icon.linkedin-icon svg path {
+      fill: white !important;
+      /* Keep LinkedIn icon white on hover */
+    }
+
+    .contact-holder:hover .cont-icon.linkedin-icon svg rect {
+      fill: var(--accent-color) !important;
+      /* Change background rect */
     }
 
     .cont-icon {
-      margin-right: 8px;
-      background: var(--dark-theme-text-color);
+      display: flex;
+      /* Center icon inside */
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      /* Fixed size */
+      height: 40px;
+      background: var(--icon-bg-color);
       border-radius: 50%;
       padding: 8px;
+      transition: background-color var(--transition-speed) var(--transition-func);
     }
 
-    .width-1 {
-      width: 500px;
-      max-width: calc(100% - var(--ul-padding-left));
+    .cont-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
-    hr {
+    /* Adjust SVG colors based on theme */
+    .cont-icon svg path,
+    .cont-icon svg rect {
+      transition: fill var(--transition-speed) var(--transition-func);
+    }
+
+    .cont-icon svg .st0 {
+      /* Mail icon */
+      fill: var(--text-color-secondary);
+    }
+
+    .cont-icon svg [stroke="#dcdcdc"] {
+      /* Phone icon */
+      stroke: var(--text-color-secondary);
+    }
+
+    .cont-icon.linkedin-icon svg rect[fill="#1275B1"] {
+      /* LinkedIn Background */
+      fill: var(--text-color-secondary);
+    }
+
+    body.dark .cont-icon.linkedin-icon svg rect[fill="#1275B1"] {
+      fill: #1275b1;
+      /* Keep original blue in dark mode */
+    }
+
+    body.dark .cont-icon.linkedin-icon svg path[fill="white"] {
+      fill: var(--dark-text);
+      /* Adjust inner white */
+    }
+
+    /* === Navigation Buttons === */
+    .buttons-hodler {
       width: 100%;
+      display: flex;
+      /* Use flex for better alignment/wrapping */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px 20px;
+      /* Row and column gap */
+      margin-bottom: var(--section-spacing);
+      border-bottom: var(--border-width) solid var(--border-color);
     }
 
-    ul {
-      display: grid;
-      justify-items: start;
-      padding-left: var(--ul-padding-left);
-      margin: 0;
+    .btn {
+      cursor: pointer;
+      padding: 12px 15px;
+      border: none;
+      border-bottom: 3px solid transparent;
+      /* For active state */
+      background: none;
+      color: var(--text-color-secondary);
+      font-family: var(--font-secondary);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color var(--transition-speed) var(--transition-func),
+        border-color var(--transition-speed) var(--transition-func);
     }
 
-    .certf-anchor {
-      width: fit-content;
-      display: block;
-      margin-bottom: 8px;
+    .btn:hover {
+      color: var(--accent-color);
     }
 
-    .col-1 {
-      grid-template-columns: repeat(1, 1fr);
+    .btn.active {
+      color: var(--accent-color);
+      border-bottom-color: var(--accent-color);
+      font-weight: 600;
     }
 
-    .inner-hr {
-      width: 80%;
+    /* === Theme Toggle Button === */
+    .theme-toggle {
+      position: absolute;
+      top: var(--body-padding);
+      right: var(--body-padding);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-color-secondary);
     }
 
-    .section {
-      width: 100%;
+    .theme-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      transition: transform 0.5s ease;
+    }
+
+    .theme-toggle .icon-sun {
       display: none;
     }
 
-    .section>h3,
-    .section>h4 {
-      text-align: center;
+    .theme-toggle .icon-moon {
+      display: block;
+    }
+
+    body.dark .theme-toggle .icon-sun {
+      display: block;
+    }
+
+    body.dark .theme-toggle .icon-moon {
+      display: none;
+    }
+
+    body.dark .theme-toggle {
+      color: var(--dark-text-secondary);
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent-color);
+    }
+
+    /* Add rotation effect */
+    .theme-toggle:hover .icon-sun {
+      transform: rotate(90deg);
+    }
+
+    .theme-toggle:hover .icon-moon {
+      transform: rotate(45deg);
+    }
+
+    /* === Sections === */
+    .section {
+      width: 100%;
+      display: none;
+      /* Hidden by default */
+      margin-bottom: var(--section-spacing);
+      animation: fadeIn 0.5s ease-in-out;
+      /* Fade-in effect */
     }
 
     .section.show {
       display: block;
     }
 
-    .buttons-hodler {
-      width: 100%;
-      display: grid;
+    .section>h3 {
+      margin-bottom: 1.5rem;
+      /* Consistent spacing after section title */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === Work Experience (Jobs) === */
+    #jobs-holder .job-entry {
+      background-color: var(--card-bg-color);
+      padding: var(--card-padding);
+      border-radius: var(--border-radius-md);
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+      /* Space between job entries */
+      transition: background-color var(--transition-speed) var(--transition-func),
+        border-color var(--transition-speed) var(--transition-func);
+    }
+
+    #jobs-holder .job-header {
+      margin-bottom: 1rem;
+    }
+
+    #jobs-holder .job-header h4 {
+      margin-bottom: 0.1em;
+    }
+
+    /* Company name */
+    #jobs-holder .job-header p {
+      /* Period */
+      font-size: 0.9em;
+      color: var(--text-color-secondary);
+      margin-bottom: 0.5em;
+    }
+
+    #jobs-holder .job-header .position {
+      /* Position */
+      font-weight: 500;
+      font-size: 1.05em;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    #jobs-holder .job-section-title {
+      font-weight: 600;
+      display: block;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+      font-size: 1em;
+    }
+
+    #jobs-holder ul {
+      margin-left: 1.5em;
+      /* Indent lists */
+      list-style: disc;
+      /* Use standard bullets for responsibilities */
+    }
+
+    #jobs-holder ul li {
+      margin-bottom: 0.5em;
+    }
+
+    #jobs-holder .technologies-list {
+      list-style: none;
+      /* Remove bullets for tech tags */
+      margin-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    #jobs-holder .technologies-list li {
+      background-color: var(--icon-bg-color);
+      color: var(--text-color-secondary);
+      padding: 4px 10px;
+      border-radius: var(--border-radius-sm);
+      font-size: 0.85em;
+      border: 1px solid var(--border-color);
+      margin-bottom: 0;
+      /* Override default li margin */
+      transition: background-color var(--transition-speed) var(--transition-func),
+        color var(--transition-speed) var(--transition-func),
+        border-color var(--transition-speed) var(--transition-func);
+    }
+
+    /* === Skills === */
+    #skills-section h4 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-color-secondary);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
+      padding: 0;
+      margin: 0 auto 2rem auto;
+      max-width: 80%;
+      /* Contain skills */
     }
 
-    .btn {
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 13px;
-      background: var(--dark-theme-text-color);
-      border: 1px solid var(--dark-theme-btns-border-color);
-      color: var(--dark-theme-btns-border-color);
-      font-weight: bold;
+    .skills-list li {
+      list-style: none;
+      margin: 0;
+      /* Remove default li margin */
     }
 
-    .theme {
-      position: absolute;
-      top: var(--body-padding);
-      right: var(--body-padding);
+    .skills-list li span {
+      /* Style the span inside li */
+      display: inline-block;
+      background-color: var(--card-bg-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      border-radius: var(--border-radius-lg);
+      /* Pill shape */
+      font-size: 0.9em;
+      font-weight: 500;
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--transition-speed) var(--transition-func),
+        color var(--transition-speed) var(--transition-func),
+        border-color var(--transition-speed) var(--transition-func);
     }
 
-    body.dark {
-      background: black;
-      color: var(--dark-theme-text-color);
+    .skills-list li span:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      /* Contrast color */
+      border-color: var(--accent-color);
     }
 
+    /* === Certificates === */
+    #certificates-holder {
+      text-align: center;
+    }
+
+    #certificates-holder h4 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.2em;
+    }
+
+    .certf-anchor {
+      display: inline-block;
+      /* Was block, inline-block allows centering */
+      margin-bottom: 1.5rem;
+      font-size: 0.9em;
+      /* Optional: style like a small button */
+      padding: 4px 10px;
+      border: 1px solid var(--accent-color);
+      border-radius: var(--border-radius-sm);
+    }
+
+    .certf-anchor:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      text-decoration: underline;
+      /* Keep simple underline */
+    }
+
+    /* === Profile === */
+    #profile-section p {
+      max-width: 700px;
+      /* Improve readability */
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+      /* Justify text */
+      color: var(--text-color-secondary);
+    }
+
+    /* === Education === */
+    #education-section .education-entry {
+      margin-bottom: 1.5rem;
+      padding: var(--card-padding);
+      background-color: var(--card-bg-color);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--shadow-sm);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #education-section .education-entry h4 {
+      color: var(--accent-color);
+    }
+
+    #education-section .education-entry p {
+      margin-bottom: 0.2em;
+      color: var(--text-color-secondary);
+    }
+
+    #education-section .education-entry p:last-child {
+      margin-bottom: 0;
+    }
+
+    .technologies-list>li::before,
+    .skills-list>li::before {
+      display: none;
+    }
+
+    /* === Responsive Design === */
     @media (max-width: 800px) {
       .contacts {
         grid-template-columns: 1fr;
+        /* Stack contacts */
+        justify-items: start;
+        /* Align left on mobile */
+        max-width: 350px;
+        /* Limit width on mobile */
+        margin-left: auto;
+        margin-right: auto;
       }
 
+      .contact-holder {
+        justify-content: flex-start;
+        /* Ensure icon/text align left */
+        width: 100%;
+      }
+
+      /* Reorder not needed if stacked */
       .contact-holder:nth-child(1) {
-        order: 2;
+        order: 1;
       }
 
       .contact-holder:nth-child(2) {
-        order: 1;
+        order: 2;
       }
 
       .contact-holder:nth-child(3) {
         order: 3;
       }
-    }
 
-    @media (min-width: 461px) {
-      .buttons-hodler {
-        grid-template-columns: repeat(5, 1fr);
+      h1 {
+        font-size: 2.2rem;
       }
 
-      .col-3 {
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: var(--ul-padding-left);
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.4rem;
       }
     }
 
     @media (max-width: 460px) {
-      .buttons-hodler {
-        grid-template-columns: repeat(2, 1fr);
+      :root {
+        --body-padding: 15px;
       }
 
-      .col-3 {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: var(--ul-padding-left);
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .prof-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .buttons-hodler {
+        justify-content: space-around;
+      }
+
+      /* Better spacing on small screens */
+      .btn {
+        font-size: 0.9rem;
+        padding: 10px 8px;
+      }
+
+      .skills-list {
+        max-width: 100%;
+      }
+
+      /* Use full width */
+      #profile-section p {
+        text-align: left;
+      }
+
+      #jobs-holder .job-entry,
+      #education-section .education-entry {
+        padding: 15px;
       }
     }
   </style>
 </head>
 
+<!-- Start with dark theme by default if preferred -->
+
 <body class="dark">
-  <button onclick="onThemeChange()" class="btn theme">Theme</button>
+  <div class="content-wrapper">
+    <button onclick="onThemeChange()" class="theme-toggle" aria-label="Toggle theme">
+      <!-- Sun Icon -->
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px"
+        height="24px">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-1.79 12.96l1.79 1.79 1.41-1.41-1.79-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.79-1.41-1.41-1.79 1.79z" />
+      </svg>
+      <!-- Moon Icon -->
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px"
+        height="24px">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M11.01 3.05C6.51 3.54 3 7.36 3 12c0 4.97 4.03 9 9 9 4.63 0 8.45-3.5 8.95-8.01C15.58 16.53 10 11.42 11.01 3.05z" />
+      </svg>
+    </button>
 
-  <div class="header">
-    <img src="https://i.ibb.co/R4DMNhRr/profile.png" alt="profile picture" class="prof-img" />
-    <h1 class="m-b-1">Svetozar Iliev</h1>
-    <h2 class="m-b-1">(Zak)</h2>
-    <h3 class="m-b-1">Software Developer</h3>
-    <h4>Bulgaria</h4>
-    <br>
-    <div class="contacts">
-      <a href="mailto:svetozariliev13@gmail.com" class="contact-holder">
-        <svg class="cont-icon" height="24px" width="24px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
-          <style type="text/css">
-            .st0 {
-              fill: #dcdcdc;
-            }
-          </style>
-          <g>
-            <path class="st0" d="M510.678,112.275c-2.308-11.626-7.463-22.265-14.662-31.054c-1.518-1.915-3.104-3.63-4.823-5.345
-		c-12.755-12.818-30.657-20.814-50.214-20.814H71.021c-19.557,0-37.395,7.996-50.21,20.814c-1.715,1.715-3.301,3.43-4.823,5.345
-		C8.785,90.009,3.63,100.649,1.386,112.275C0.464,116.762,0,121.399,0,126.087V385.92c0,9.968,2.114,19.55,5.884,28.203
-		c3.497,8.26,8.653,15.734,14.926,22.001c1.59,1.586,3.169,3.044,4.892,4.494c12.286,10.175,28.145,16.32,45.319,16.32h369.958
-		c17.18,0,33.108-6.145,45.323-16.384c1.718-1.386,3.305-2.844,4.891-4.43c6.27-6.267,11.425-13.741,14.994-22.001v-0.064
-		c3.769-8.653,5.812-18.171,5.812-28.138V126.087C512,121.399,511.543,116.762,510.678,112.275z M46.509,101.571
-		c6.345-6.338,14.866-10.175,24.512-10.175h369.958c9.646,0,18.242,3.837,24.512,10.175c1.122,1.129,2.179,2.387,3.112,3.637
-		L274.696,274.203c-5.348,4.687-11.954,7.002-18.696,7.002c-6.674,0-13.276-2.315-18.695-7.002L43.472,105.136
-		C44.33,103.886,45.387,102.7,46.509,101.571z M36.334,385.92V142.735L176.658,265.15L36.405,387.435
-		C36.334,386.971,36.334,386.449,36.334,385.92z M440.979,420.597H71.021c-6.281,0-12.158-1.651-17.174-4.552l147.978-128.959
-		l13.815,12.018c11.561,10.046,26.028,15.134,40.36,15.134c14.406,0,28.872-5.088,40.432-15.134l13.808-12.018l147.92,128.959
-		C453.137,418.946,447.26,420.597,440.979,420.597z M475.666,385.92c0,0.529,0,1.051-0.068,1.515L335.346,265.221L475.666,142.8
-		V385.92z" />
-          </g>
-        </svg>
-        <b>svetozariliev13@gmail.com</b>
-      </a>
+    <header class="header">
+      <img src="https://i.ibb.co/R4DMNhRr/profile.png" alt="Svetozar Iliev profile picture" class="prof-img" />
+      <h1 class="m-b-1">Svetozar Iliev</h1>
+      <h2 class="m-b-1">(Zak)</h2>
+      <h4 class="m-b-2">Software Developer</h4>
+      <p class="m-b-3" style="color: var(--text-color-secondary)">Bulgaria</p>
+      <!-- Use P for location -->
 
-      <a href="tel:+359894522335" class="contact-holder">
-        <svg class="cont-icon" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M14.05 6C15.0268 6.19057 15.9244 6.66826 16.6281 7.37194C17.3318 8.07561 17.8095 8.97326 18 9.95M14.05 2C16.0793 2.22544 17.9716 3.13417 19.4163 4.57701C20.8609 6.01984 21.7721 7.91101 22 9.94M18.5 21C9.93959 21 3 14.0604 3 5.5C3 5.11378 3.01413 4.73086 3.04189 4.35173C3.07375 3.91662 3.08968 3.69907 3.2037 3.50103C3.29814 3.33701 3.4655 3.18146 3.63598 3.09925C3.84181 3 4.08188 3 4.56201 3H7.37932C7.78308 3 7.98496 3 8.15802 3.06645C8.31089 3.12515 8.44701 3.22049 8.55442 3.3441C8.67601 3.48403 8.745 3.67376 8.88299 4.05321L10.0491 7.26005C10.2096 7.70153 10.2899 7.92227 10.2763 8.1317C10.2643 8.31637 10.2012 8.49408 10.0942 8.64506C9.97286 8.81628 9.77145 8.93713 9.36863 9.17882L8 10C9.2019 12.6489 11.3501 14.7999 14 16L14.8212 14.6314C15.0629 14.2285 15.1837 14.0271 15.3549 13.9058C15.5059 13.7988 15.6836 13.7357 15.8683 13.7237C16.0777 13.7101 16.2985 13.7904 16.74 13.9509L19.9468 15.117C20.3262 15.255 20.516 15.324 20.6559 15.4456C20.7795 15.553 20.8749 15.6891 20.9335 15.842C21 16.015 21 16.2169 21 16.6207V19.438C21 19.9181 21 20.1582 20.9007 20.364C20.8185 20.5345 20.663 20.7019 20.499 20.7963C20.3009 20.9103 20.0834 20.9262 19.6483 20.9581C19.2691 20.9859 18.8862 21 18.5 21Z"
-            stroke="#dcdcdc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <b>+359894522335</b>
-      </a>
+      <div class="contacts">
+        <a href="mailto:svetozariliev13@gmail.com" class="contact-holder">
+          <span class="cont-icon">
+            <!-- Wrap SVG in span for styling -->
+            <svg height="24px" width="24px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill: #dcdcdc;
+                }
+              </style>
+              <g>
+                <path class="st0"
+                  d="M510.678,112.275c-2.308-11.626-7.463-22.265-14.662-31.054c-1.518-1.915-3.104-3.63-4.823-5.345 c-12.755-12.818-30.657-20.814-50.214-20.814H71.021c-19.557,0-37.395,7.996-50.21,20.814c-1.715,1.715-3.301,3.43-4.823,5.345 C8.785,90.009,3.63,100.649,1.386,112.275C0.464,116.762,0,121.399,0,126.087V385.92c0,9.968,2.114,19.55,5.884,28.203 c3.497,8.26,8.653,15.734,14.926,22.001c1.59,1.586,3.169,3.044,4.892,4.494c12.286,10.175,28.145,16.32,45.319,16.32h369.958 c17.18,0,33.108-6.145,45.323-16.384c1.718-1.386,3.305-2.844,4.891-4.43c6.27-6.267,11.425-13.741,14.994-22.001v-0.064 c3.769-8.653,5.812-18.171,5.812-28.138V126.087C512,121.399,511.543,116.762,510.678,112.275z M46.509,101.571 c6.345-6.338,14.866-10.175,24.512-10.175h369.958c9.646,0,18.242,3.837,24.512,10.175c1.122,1.129,2.179,2.387,3.112,3.637 L274.696,274.203c-5.348,4.687-11.954,7.002-18.696,7.002c-6.674,0-13.276-2.315-18.695-7.002L43.472,105.136 C44.33,103.886,45.387,102.7,46.509,101.571z M36.334,385.92V142.735L176.658,265.15L36.405,387.435 C36.334,386.971,36.334,386.449,36.334,385.92z M440.979,420.597H71.021c-6.281,0-12.158-1.651-17.174-4.552l147.978-128.959 l13.815,12.018c11.561,10.046,26.028,15.134,40.36,15.134c14.406,0,28.872-5.088,40.432-15.134l13.808-12.018l147.92,128.959 C453.137,418.946,447.26,420.597,440.979,420.597z M475.666,385.92c0,0.529,0,1.051-0.068,1.515L335.346,265.221L475.666,142.8 V385.92z" />
+              </g>
+            </svg>
+          </span>
+          <span>svetozariliev13@gmail.com</span>
+          <!-- Wrap text in span -->
+        </a>
 
-      <a href="https://www.linkedin.com/in/svetozar-iliev-1b7237bb/" target="_blank" class="contact-holder">
-        <svg class="cont-icon" width="24px" height="24px" viewBox="0 0 32 32" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="28" height="28" rx="14" fill="#1275B1" />
-          <path
-            d="M12.6186 9.69215C12.6186 10.6267 11.8085 11.3843 10.8093 11.3843C9.81004 11.3843 9 10.6267 9 9.69215C9 8.7576 9.81004 8 10.8093 8C11.8085 8 12.6186 8.7576 12.6186 9.69215Z"
-            fill="white" />
-          <path d="M9.24742 12.6281H12.3402V22H9.24742V12.6281Z" fill="white" />
-          <path
-            d="M17.3196 12.6281H14.2268V22H17.3196C17.3196 22 17.3196 19.0496 17.3196 17.2049C17.3196 16.0976 17.6977 14.9855 19.2062 14.9855C20.911 14.9855 20.9008 16.4345 20.8928 17.5571C20.8824 19.0244 20.9072 20.5219 20.9072 22H24V17.0537C23.9738 13.8954 23.1508 12.4401 20.4433 12.4401C18.8354 12.4401 17.8387 13.1701 17.3196 13.8305V12.6281Z"
-            fill="white" />
-        </svg>
-        <b>LinkedIn</b>
-      </a>
-    </div>
-    <br>
-  </div>
+        <a href="tel:+359894522335" class="contact-holder">
+          <span class="cont-icon">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.05 6C15.0268 6.19057 15.9244 6.66826 16.6281 7.37194C17.3318 8.07561 17.8095 8.97326 18 9.95M14.05 2C16.0793 2.22544 17.9716 3.13417 19.4163 4.57701C20.8609 6.01984 21.7721 7.91101 22 9.94M18.5 21C9.93959 21 3 14.0604 3 5.5C3 5.11378 3.01413 4.73086 3.04189 4.35173C3.07375 3.91662 3.08968 3.69907 3.2037 3.50103C3.29814 3.33701 3.4655 3.18146 3.63598 3.09925C3.84181 3 4.08188 3 4.56201 3H7.37932C7.78308 3 7.98496 3 8.15802 3.06645C8.31089 3.12515 8.44701 3.22049 8.55442 3.3441C8.67601 3.48403 8.745 3.67376 8.88299 4.05321L10.0491 7.26005C10.2096 7.70153 10.2899 7.92227 10.2763 8.1317C10.2643 8.31637 10.2012 8.49408 10.0942 8.64506C9.97286 8.81628 9.77145 8.93713 9.36863 9.17882L8 10C9.2019 12.6489 11.3501 14.7999 14 16L14.8212 14.6314C15.0629 14.2285 15.1837 14.0271 15.3549 13.9058C15.5059 13.7988 15.6836 13.7357 15.8683 13.7237C16.0777 13.7101 16.2985 13.7904 16.74 13.9509L19.9468 15.117C20.3262 15.255 20.516 15.324 20.6559 15.4456C20.7795 15.553 20.8749 15.6891 20.9335 15.842C21 16.015 21 16.2169 21 16.6207V19.438C21 19.9181 21 20.1582 20.9007 20.364C20.8185 20.5345 20.663 20.7019 20.499 20.7963C20.3009 20.9103 20.0834 20.9262 19.6483 20.9581C19.2691 20.9859 18.8862 21 18.5 21Z"
+                stroke="#dcdcdc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>+359894522335</span>
+        </a>
 
-  <div class="buttons-hodler">
-    <button onclick="onInfoChange('jobs-section')" class="btn">Work</button>
-    <button onclick="onInfoChange('certificates-section')" class="btn">Certificates</button>
-    <button onclick="onInfoChange('skills-section')" class="btn">Skills</button>
-    <button onclick="onInfoChange('profile-section')" class="btn">Profile</button>
-    <button onclick="onInfoChange('education-section')" class="btn">Education</button>
-  </div>
-  <br>
-
-  <div id="jobs-section" class="section show">
-    <h3>WORK EXPERIENCE</h3>
-    <hr>
-    <div id="jobs-holder"></div>
-  </div>
-
-  <div id="certificates-section" class="section">
-    <h3>CERTIFICATES</h3>
-    <hr>
-    <div id="certificates-holder"></div>
-  </div>
-
-  <div id="skills-section" class="section">
-    <h3>SKILLS</h3>
-    <hr>
-    <h4>Core Skills</h4>
-    <hr class="inner-hr">
-    <ul id="core-skills-holder" class="width-1 col-3"></ul>
-    <br>
-    <h4>Additional Skills</h4>
-    <hr class="inner-hr">
-    <ul id="additional-skills-holder" class="width-1 col-3"></ul>
-    <br>
-  </div>
-
-  <div id="profile-section" class="section">
-    <h3>PROFILE</h3>
-    <hr>
-    <p class="width-1">Svetozar is a software developer with great communication skills. He adapts easily in any
-      situation
-      and is eager to learn new technologies and develop skills in order to be more productive. He possesses a keen eye
-      for detail and is devoted to delivering high-quality service. Svetozar is an easy-going person who strives to
-      achieve client satisfaction through his work.</p>
-    <br>
-  </div>
-
-  <div id="education-section" class="section">
-    <h3>EDUCATION</h3>
-    <hr>
-    <div class="width-1">
-      <div>
-        <h4>Front-end Development</h4>
-        <p>Telerik Academy</p>
-        <p>2016 - 2017</p>
+        <a href="https://www.linkedin.com/in/svetozar-iliev-1b7237bb/" target="_blank" rel="noopener noreferrer"
+          class="contact-holder">
+          <span class="cont-icon linkedin-icon">
+            <!-- Add class for specific styling -->
+            <svg width="24px" height="24px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="14" fill="#1275B1" />
+              <path
+                d="M12.6186 9.69215C12.6186 10.6267 11.8085 11.3843 10.8093 11.3843C9.81004 11.3843 9 10.6267 9 9.69215C9 8.7576 9.81004 8 10.8093 8C11.8085 8 12.6186 8.7576 12.6186 9.69215Z"
+                fill="white" />
+              <path d="M9.24742 12.6281H12.3402V22H9.24742V12.6281Z" fill="white" />
+              <path
+                d="M17.3196 12.6281H14.2268V22H17.3196C17.3196 22 17.3196 19.0496 17.3196 17.2049C17.3196 16.0976 17.6977 14.9855 19.2062 14.9855C20.911 14.9855 20.9008 16.4345 20.8928 17.5571C20.8824 19.0244 20.9072 20.5219 20.9072 22H24V17.0537C23.9738 13.8954 23.1508 12.4401 20.4433 12.4401C18.8354 12.4401 17.8387 13.1701 17.3196 13.8305V12.6281Z"
+                fill="white" />
+            </svg>
+          </span>
+          <span>LinkedIn</span>
+        </a>
       </div>
-      <br>
+    </header>
 
-      <div>
-        <h4>Fashion Design</h4>
-        <p>Vocational School Of Light Industry And Tourism</p>
-        <p>2003 - 2007</p>
-      </div>
-    </div>
+    <nav class="buttons-hodler">
+      <button onclick="onInfoChange('jobs-section')" class="btn">
+        Work Experience
+      </button>
+      <button onclick="onInfoChange('skills-section')" class="btn">
+        Skills
+      </button>
+      <button onclick="onInfoChange('certificates-section')" class="btn">
+        Certificates
+      </button>
+      <button onclick="onInfoChange('profile-section')" class="btn">
+        Profile
+      </button>
+      <button onclick="onInfoChange('education-section')" class="btn">
+        Education
+      </button>
+    </nav>
+
+    <main>
+      <section id="jobs-section" class="section">
+        <!-- Initially hidden via CSS -->
+        <h3>Work Experience</h3>
+        <div id="jobs-holder"></div>
+      </section>
+
+      <section id="skills-section" class="section">
+        <h3>Skills</h3>
+        <h4>Core Skills</h4>
+        <hr class="inner-hr" />
+        <ul id="core-skills-holder" class="skills-list"></ul>
+        <h4>Additional Skills</h4>
+        <hr class="inner-hr" />
+        <ul id="additional-skills-holder" class="skills-list"></ul>
+      </section>
+
+      <section id="certificates-section" class="section">
+        <h3>Certificates</h3>
+        <hr class="inner-hr" />
+        <div id="certificates-holder"></div>
+      </section>
+
+      <section id="profile-section" class="section">
+        <h3>Profile</h3>
+        <hr class="inner-hr" />
+        <p>
+          Svetozar is a software developer with great communication skills. He
+          adapts easily in any situation and is eager to learn new
+          technologies and develop skills in order to be more productive. He
+          possesses a keen eye for detail and is devoted to delivering
+          high-quality service. Svetozar is an easy-going person who strives
+          to achieve client satisfaction through his work.
+        </p>
+      </section>
+
+      <section id="education-section" class="section">
+        <h3>Education</h3>
+        <hr class="inner-hr" />
+        <div id="education-holder"></div>
+      </section>
+    </main>
   </div>
+  <!-- end .content-wrapper -->
+
+  <script>
+    // --- Data ---
+    const coreSkills = [
+      "ReactJS",
+      "Redux",
+      "VueJS",
+      "Vuex",
+      "NextJS",
+      "JavaScript ES6",
+      "VanillaJS",
+      "SASS/LESS",
+      "SCSS",
+      "CSS3",
+      "HTML5",
+      "GitHub",
+      "Microsoft Azure",
+      "Bitbucket",
+      "GitLab",
+      "NPM",
+      "VS Code",
+    ];
+    const additionalSkills = [
+      "React Native",
+      "NodeJS",
+      "Express JS",
+      "MongoDB",
+      "Python",
+      "Django",
+      "noSQL",
+      "Bootstrap",
+      "JQuery",
+      "Passport JS",
+      "SVN",
+      "Jenkins",
+      "Trello",
+      "Google Analytics",
+      "Linux",
+    ];
+    const certificates = [
+      {
+        name: "Next.js & React - The Complete Guide(incl. Two Paths!)",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBLb8IwEIT%2FSuR7HrZDIBZEAtJHVFLRFgrtzXWcYCmxg%2B0E%2Bu8b6IVeellppZ1vdmZqaFO3ZN7Zg3zlx44b66TDEJJaoeQMHKxtDfH9WlVCeo1gWhlVWiVrIbnHVONHbARZNIrduBghN4S0dCewHLtFwWGEJwGfQOxfbBBw3rk2VyzyAuBk6QxkAT3toyeE4WOpq0O8S5f9Or1%2F2FYv8TfKWT8%2Bnb5Qv9iF6a7tn%2FMj1nSz%2F8hXi2J7lw0MYzqeSWOptAM2QKELAzfAG4gJCgnEHkboEzjnppaGXNPOQKclUdQIQyRtuCGWkbd5viLDV6TVyiqmapBML9fkaqBv9P%2FLqTFcX6oDyVrIaqmk5MxO%2FRtW8rv9bT35AQ%3D%3D&RelayState=I0awX6K231Hfrgh9WDCvPDFGUgQ9y2Mcv7wwb2vBW4DWpvNMq3raTXYMLBdUEI",
+      },
+      {
+        name: "Next.js by Example",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfJfLdieOYQCyIRAutEH8RUKr2FhkToibr1OuU8vYN9EIvvay00s43OzPEvK4aOW7dCTb6s9XovEk3SshdaWBETs41KIOgMkUJfl0qa9AcnYGqBO0rUwex6oUq7iU0OfQ4FWF%2BpIPw2KeHgw7jaMD0IIyCqw0n3l5bvGG5z4g3m4zIjKHiWTGn4hnEVC%2ByubLV%2FvLBvtabl9W66Yu3s9aLpa3mmiVPPFsV23OzexD2dTuedgzEVs8AXQ6uwzIuaMgoi3ZhJLmQUd%2FncfJOvO%2B6ApS3tCPSWpAmxxIl5LVG6ZTcjpcL2X0lG2ucUaYi6fB6LW8G9k7%2FvzxH1PZaHUmzEopHA6CVGwZ3rPR3%2B9t6%2BgM%3D&RelayState=I0sc2PgK-4Gn4EeLPKcrlVyk0vORUNOp74YweeLMrlKe09F2PNgSwpTB4rWSAE",
+      },
+      {
+        name: "React and Typescript: Build a Portfolio Project",
+        src: "https://www.udemy.com/certificate/UC-e090c701-efb4-4611-84f2-cad1ae41d17f/",
+      },
+      {
+        name: "Advanced React.js",
+        src: "https://app.pluralsight.com/learner/user/courses/reactjs-advanced/certificate",
+      },
+      {
+        name: "Testing React Applications with Jest ",
+        src: "https://app.pluralsight.com/learner/user/courses/testing-react-applications-jest/certificate",
+      },
+      {
+        name: "React Web App Testing With NodeJs, Cypress WebDriverIO",
+        src: "https://www.udemy.com/course/react-web-app-testing-with-nodejs-cypress-and-webdriverio/",
+      },
+      {
+        name: "Building Applications with React and Redux",
+        src: "https://app.pluralsight.com/learner/user/courses/react-redux-react-router-es6/certificate",
+      },
+      {
+        name: "Building Applications with React and Flux",
+        src: "https://app.pluralsight.com/learner/user/courses/react-flux-building-applications/certificate",
+      },
+      {
+        name: "React: Getting Started",
+        src: "https://app.pluralsight.com/learner/user/courses/react-js-getting-started/certificate",
+      },
+      {
+        name: "Python Django - The Practical Guide",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfBfmeHzsJCRZEogUVpIIQIGi5VMaYxG2yTr1O6eM30Au99LLSSjPf7M4QRV01fNy6Etbqs1XoepNuaBBOGxiR0rkGeRBUptDg11pag%2BbsDFQalC9NHfRlQmU%2FGXiDU8K8mIqzl9Fz6p1OivajLFQZjYJrDCO9nbJ4wzI%2FJL35ZETmIS5asXufPTXZUZvmKxWX5mVRHG04K5bxRe1ZeVhN2UOKLqbFfj0tN29bu2zj1%2F3HoWMgtmoO6AS4Dhuy2KOhF0ZbGnEW8yTxaZp1uu%2B6AuS3b0ektcCNQI0cRK2QO8k348Uz767ijTXOSFORfHhV81uAvfP%2FbxeIyl6rI%2FlKQ%2FFoAJR0w%2BCOlf9uf1vPfwA%3D&RelayState=I0sMuaVjHGp8biopv7awpXMgbr0HgN4weW2hZPE2B7st41gWREhS_TrNu4YWkZ",
+      },
+      {
+        name: "100 Days of Code: The Complete Python Pro Bootcamp for 2022",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfJfLdSZw%2FggWRUtKqFJAQVEXiZowhRsk62E5UePqG9EIvvay00s43OzMxrK4amre2hI24tsJYp%2BiHBGalgikqrW0M9bxKnSW4teRaGXWyCioJwuWq9hIeE57EYzw%2BxgGOCDvhlJxG%2BHgUJAlTX6Qk9B42AXK%2BhDYDNnB95MyLKZr7%2B5EcyzvBt5ysq4%2Fta7PFl81usdJNcShWOe6ie75QL4uO3d6u3exQRpflqHtn5TXZ9QxjWjEHYxnYHusHESY%2B9sNPEtIgpiR1AxLvkfNdV2DokHaKWg1UMSMNBVYLQy2n23y1pP1XtNHKKq4qlE0e13Qw0E%2F6%2F%2BXMGKEf1aFsLeE8UwCC24n3xMp%2Bt7%2BtZz8%3D&RelayState=I0Z7i9iz1-yA1PlJSEpS-jRWKMrpDbDMA-v4zAKoBKvayFqvCbh4jL7vHahq6W",
+      },
+      {
+        name: "NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfJfI9xM4fwYJIqLQiKqiFpqD2UhnjgEuypl5HKjx9A73QSy8rjTTzjXaGKJr6yMet28NSfbUKnTfpjgbhtIER2Tt3RB4Etdlp6DVaWoOmcgZqDaonTROkMmEyTQb%2BYJuEfsxE5Wes6vvbrWJplFGVsSi41ITEWymLV2zYo8QrJiNSUKPLB5dkppn1x5vp4mnxdv50h8e1Xc3Lj5NfbeAgqrSM6Wo9BSeKAW5qutTn%2B%2Fo16hiIrSoAnQDXYWkY%2B4z6NCpZzCnlYVeUJu%2FE%2B25qQH79dkRaC9wI1MhBNAq5k%2FxlPJ%2FxzsyP1jgjTU3y4cXNrwX2Jv9%2FXCAqe5mO5M8adncGQEk3DG5Y%2Ba%2F6u3r%2BAw%3D%3D&RelayState=I0oiTFt58omL7AbHQOQYzjtkKWrVMT_y-fbnkaf6T40VWHntaI9sbl0RizElU3",
+      },
+      {
+        name: "MongooseJS Essentials - Learn MongoDB for Node.js",
+        src: "https://www.udemy.com/certificate/UC-IM34X7GG/",
+      },
+      {
+        name: "Coding and testing an authentication API [NodeJs + Cypress]",
+        src: "https://www.udemy.com/course/coding-and-testing-an-authentication-api-nodejs-cypress/",
+      },
+      {
+        name: "React Native - The Practical Guide[2022]",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBfa8IwFMW%2FSsl72qT%2FbEMtVGVQUJQpG%2FoiIcY2mCYuSbe6T7%2FqXtzLXi5cuOd37jmFpZ28kqp3rXrlHz23zluMQyjqhFZT0Dp3tSQIpG6E8jvBjLb67LSSQnGf6S5IWYJZmuQwPyUhjDE9wwyfJ%2FB04jiNMsQzHAV3mxB4b9zYBzb0EfDqxRTUaBZfjHyZu3repNthvWzfq9uwynUujp%2FQZAe6Pi6H236TTNwi322bYZ9%2FyYvs2%2B9qNjKs7XmtrKPKjVgUxhAjiKIdjkiUkxj5COMD8IZOKkseaaegN4poaoUlinbcEsfItlotyfgVuRrtNNMSlMX9mjwMzJP%2Bfzm1lpt7daDcCNXMtVKcuSJ4YpW%2F29%2FWyx8%3D&RelayState=I0B4krlFCtICg6SxOLhWAyxM9o9i_v-r8ZaO_LxyYP57tD9TSgxY9wlkluhzAB",
+      },
+      {
+        name: "Fastlane for React Native: Deploy your app autonomously!",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBfa8IwFMW%2FSsl726QxtQYtaGVS2ETq2KgvkqWpBtobl6T78%2B1X3Yt72cuFC%2Ff8zj1n7kTfXfhy8Geo1PugnA%2FW49AgvDawQGfvL47HcWdOGqJeS2ucab2BToOKpOnjVDIiUzYLZw1LwgkRbZiRdho2jSIpzbDKCI2vNgkKXpR1N2wSYRSU6wUq8YYNVfEh60MlGQ7L%2Bvt83ArI4PXhtPLUmpo2Im0%2Bj12xYkUi37ZVvdtIWbaHvR4Zzg2qBOcF%2BBGLk0lIcIjpM6E8YZyyCE%2FJAQVffQeO39Iu0GCBG%2BG04yB65biXfL98euTjV%2FxijTfSdCifX6%2F5zcDe6f%2BXC%2BeUvVaH8p2GU2EAlPTz%2BI6V%2F25%2FW89%2FAA%3D%3D&RelayState=I0G5uRCvcYZRc50-IYyh_Nan8nWFgBt3roY3da6dw_lCB5C2cbNRYPGccIfZSi",
+      },
+      {
+        name: "Master React Native Animations",
+        src: "https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBBb4JAEIX%2FCtn7Aguu1Y2SELWNjTRWWw%2Fetusia2GWMktD%2B%2BsL9mIvvUwyybzvzXszlFVZi7R1Bez0R6vRect%2BGJDOWJiTwrkaRRCU9mzAr4xqLNrcWSgNaF%2FZKhgrztSYT%2Bn0xCM6YjKnE5bf0dNJs3E8CfWExcFgExHvoBu8YiM%2FJN56OSfrsMi7lNJp1i7u28hALlNm4bl6fdJm%2F37UF0ZXD4dNV38W3TbjX2%2Br3SV73NdZVuJ3z0Bs9RrQSXA9NoxGlIU0jF9YLCIueOzHPDwSr6tKQHFNOydtA8JKNChAVhqFU2KfZhvRfyXqxjqrbEmS2XAtrgbNjf5%2FuUTUzVAdSbYGzgsLoJWbBTes5Hf723ryAw%3D%3D&RelayState=I0hfxA--9MuCFu2infaA1onQmUNeiSkZej1-EGVLxpvhxPM5ybERjMJSpMMlsz",
+      },
+      {
+        name: "API Testing with JavaScript and Cypress 10",
+        src: "https://www.udemy.com/course/api-testing-with-javascript-and-cypress-10/",
+      },
+      {
+        name: "CYPRESS | Step-by-Step for Beginners | Hands-On Training",
+        src: "https://www.udemy.com/course/cypress-step-by-step-for-beginners-hands-on-training",
+      },
+      {
+        name: "Cypress 10 Component Testing Tutorial",
+        src: "https://www.udemy.com/course/cypress-10-component-testing-tutorial/",
+      },
+      {
+        name: "Complete JavaScript Course For Beginners to Master - 2019",
+        src: "https://www.udemy.com/certificate/UC-ba55b644-7dec-451c-9384-4431c9bf6c03/",
+      },
+      {
+        name: "ExpressJS Fundamentals",
+        src: "https://www.udemy.com/certificate/UC-617I2F70/",
+      },
+      {
+        name: "MongoDB Essentials - Understand the Basics of MongoDB",
+        src: "https://www.udemy.com/certificate/UC-MTY59VZL/",
+      },
+      {
+        name: "Bootstrap 4 Quick Start: Code Modern Responsive Websites",
+        src: "https://www.udemy.com/certificate/UC-5V4BPVZ8/",
+      },
+      {
+        name: "Complete Regex Crash Course",
+        src: "https://www.udemy.com/certificate/UC-K4B5RSON/",
+      },
+      {
+        name: "Front End Libraries Project",
+        src: "https://www.freecodecamp.org/certification/netbk13tu/front-end-development-libraries",
+      },
+      {
+        name: "JavaScript Algorithms and Data Structures",
+        src: "https://www.freecodecamp.org/certification/netbk13tu/javascript-algorithms-and-data-structures",
+      },
+      {
+        name: "Responsive Web Design",
+        src: "https://www.freecodecamp.org/certification/netbk13tu/responsive-web-design",
+      },
+      {
+        name: "SVG basics for beginners - concepts explained with examples",
+        src: "https://www.udemy.com/certificate/UC-RDPOI4FO/",
+      },
+      {
+        name: "Sass Workflow",
+        src: "https://www.udemy.com/certificate/UC-PTE9G58U/",
+      },
+      {
+        name: "npm - Mastering the Basics",
+        src: "https://www.udemy.com/certificate/UC-SA3OZKHR/",
+      },
+      {
+        name: "JavaScript Tutorial",
+        src: "https://www.sololearn.com/Certificate/CT-BJWMJTKZ/pdf",
+      },
+      {
+        name: "Learn Webpack 2 from scratch",
+        src: "https://www.udemy.com/certificate/UC-F175FKFG/",
+      },
+      {
+        name: "Regex Academy: An Introduction To Text Parsing Sorcery",
+        src: "https://www.udemy.com/certificate/UC-TT8DPQU6/",
+      },
+    ];
+    const experiences = [
+      {
+        company: "Dream Dev",
+        period: "March 2025 - April 2025",
+        position: "Software Developer",
+        project:
+          "SPA that allows users to create and chat with a person using AI.",
+        responsibilities: [
+          "Work on the FE part of the project",
+          "Create reusable components",
+          "Create landing pages ",
+          "Working with SCSS and bootstrap",
+        ],
+        technologies: ["Vue JS", "SCSS", "Bootstrap"],
+      },
+      {
+        company: "Hades Defense Systems",
+        period: "July 2023 - May 2024",
+        position: "Software Developer",
+        project:
+          "Building management and operation software for drones. Including real-time streaming, mission management and monitoring.",
+        responsibilities: [
+          "Work on the FE part of the project",
+          "Writing unit tests",
+          "Working with CSS modules",
+          "Create, edit, upload drone missions using maps, elevations etc.",
+        ],
+        technologies: [
+          "NextJS",
+          "Redux",
+          "React - Router",
+          "Iconify",
+          "JSX",
+          "Figma",
+          "React Google Maps",
+          "ESlint",
+          "Datepicker",
+          "ChartJS",
+          "Prettier",
+          "Axios",
+          "JSON web token",
+          "Jest",
+          "SASS",
+        ],
+      },
+      {
+        company: "Mentormate",
+        period: "January 2022 - May 2022",
+        position: "Software Developer",
+        project:
+          "There where two projects for the biggest and world known Basketball Association. The first project was a CMS Project for the clients (basketball teams) to manage there own website pages - add, remove, arrange different elements in every page. The second project was to work on all websites for all Basketball teams. Managing the websites, make changes to them, deal with adds, merchandise.",
+        responsibilities: [
+          "Work on the FE part of both projects",
+          "Writing unit test for components and logical JS files",
+          "Using CSS modules",
+          "Doing tasks on CMS webside that will send data to the FE websites of all NBA teams and working on the FE tasks on that project as well",
+          "Handling embed codes and retrieving info from them to generate different components",
+        ],
+        technologies: [
+          "React (with ContextAPI and Hooks)",
+          "Redux",
+          "React - Router",
+          "JSX",
+          "Figma",
+          "Azure",
+          "Swagger",
+          "SCSS",
+          "Chakra UI",
+          "Axios",
+          "date-fns",
+          "Formik",
+          "react-datepicker",
+          "Lodash",
+        ],
+      },
+      {
+        company: "Mentormate",
+        period: "October 2021 - November 2021",
+        position: "Software Developer",
+        project:
+          "The project intended to create a new interface for an analytics flagship software product. The old version of the app was a desktop one, the new one is a web-based app. The main priority was to improve the user experience for the parts of the application that are used by users most frequently. The application's aim is to provide in-depth analysis and simulation of electricity markets, based on numerous data items that represent real-life entities like energy sources (power stations, renewables, and many more), energy consumption (electricity load) and weather variability, prices, financial instruments, portfolio management and resource planning. ",
+        responsibilities: [
+          "Created, edited, deleted and managed data and graphs for solar panels and windmill. Worked with items history data",
+          "Gave the user option to see and edit data",
+          "Uploaded and downloaded data for items in Excel format",
+          "Showed items location on the map",
+        ],
+        technologies: [
+          "React",
+          "Redux",
+          "React - Router",
+          "React (with Hooks)",
+          "JSX",
+          "Figma",
+          "Azure",
+          "Swagger",
+          "SCSS",
+          "Chakra UI",
+          "Axios",
+          "date-fns",
+          "Formik",
+          "Lodash",
+          "react-datepicker",
+        ],
+      },
+      {
+        company: "Mentormate",
+        period: "July 2021 - September 2021",
+        position: "Software Developer",
+        project:
+          "The client is creating a blood sample testing device that will accept a cartridge containing a blood sample, and provide the user with options for performing automated tests on the sample. MentorMate assisted with the software development. This was a staff augmentation project.",
+        responsibilities: [
+          "Created a new admin website Managed ",
+          "and edited drugs and their info Wrote ",
+          "Unit tests with Mocha and Chai",
+        ],
+        technologies: [
+          "VueJS",
+          "Vuex",
+          "Vue-Router",
+          "SCSS",
+          "Lodash",
+          "Axios",
+          "Bootstrap 4",
+          "Mocha Testing",
+          "moment JS",
+          "Chai",
+        ],
+      },
+      {
+        company: "Mentormate",
+        period: "February 2021 - June 2021",
+        position: "Software Developer",
+        project:
+          "A highly customizable idea-sharing platform, tailored to fit the needs of our client's clients. Svetozar's work is concentrated on the FE implementation of the product and to provide not only quality but well-tested solutions as well.",
+        responsibilities: [
+          "Created a new admin website",
+          "Rewrote and maintained one of their old websites",
+          "Used different routing for different user roles",
+          "Worked on cross-platform",
+          "E2E testing with Playwright",
+        ],
+        technologies: [
+          "React",
+          "TypeScript",
+          "React (with Hooks)",
+          "Redux",
+          "React - Router",
+          "JSX",
+          "SCSS",
+          "Local Storage",
+          "Playwright",
+        ],
+      },
+      {
+        company: "Mentormate",
+        period: "July 2020 - January 2021",
+        position: "Software Developer",
+        project:
+          "Web application that helps people with diabetes to check their readings using a glucometer, upload them, and see them through in this web application. The web app is based on the existing website but is written with the latest ReactJS version at the time. Svetozar's work was concentrated on the FE implementation of the product.",
+        responsibilities: [
+          "Created new React app",
+          "Worked on Website with accessibility features",
+          "Used of different routing for different user roles",
+          "Made demos to the client with the new features every couple of weeks",
+        ],
+        technologies: [
+          "React",
+          "React (with Hooks)",
+          "JSX",
+          "SCSS",
+          "Local Storage",
+          "Swagger",
+          "AWS",
+        ],
+      },
+      {
+        company: "Price International",
+        period: "June 2020 - July 2020",
+        position: "Front-end developer",
+        project: "SPA application that manages Mobile companies.",
+        responsibilities: [
+          "Create new Vue JS project",
+          "Create reusable components",
+          "Usage of Vuex",
+          "Usage of routing",
+        ],
+        technologies: ["VueJS", "Vuex", "CSS3", "SASS/LESS"],
+      },
+      {
+        company: "1 ForFit",
+        period: "October 2019 - April 2020",
+        position: "Front-end developer",
+        project:
+          "Websites for generating diets. Svetozar's work was concentrated on the FE implementation of the product.",
+        responsibilities: [
+          "Started of a new Vue JS SPA project",
+          "Created SASS animations to avoid animations made by JS ",
+          "Optimized old functions for better performance",
+          "Usage of routing",
+        ],
+        technologies: [
+          "Vanilla JS",
+          "VueJS",
+          "Vuex",
+          "CSS3",
+          "CSS Animations",
+          "SASS/LESS",
+        ],
+      },
+      {
+        company: "EGT",
+        period: "April 2018 - October 2019",
+        position: "Software developer",
+        project:
+          "Responsive online casino games that work on all devices and browsers. Svetozar's work was concentrated on the FE implementation of the product.",
+        responsibilities: [
+          "Created new responsive games",
+          "Created new features for every game",
+          "Made them work properly for different devices and browsers",
+          "Rewrite old games on Vue JS",
+        ],
+        technologies: [
+          "Vanilla JS",
+          "VueJS",
+          "Vuex",
+          "CSS3",
+          "CSS Animations",
+          "SASS/LESS",
+        ],
+      },
+      {
+        company: "DB Office",
+        period: "September 2017 - April 2018",
+        position: "Software developer",
+        project:
+          "Create bot to scrape websites, create offers for clients and send them.",
+        responsibilities: [
+          "Learn UbotStudio",
+          "Inspect code of previous bot",
+          "Create new bot that works for 4 websites",
+        ],
+        technologies: ["Vanilla JS", "UbotStudio"],
+      },
+    ];
+    const education = [
+      {
+        institution: "Telerik Academy",
+        field: "Front-end Development",
+        period: "2016 - 2017",
+      },
+      {
+        institution: "Vocational School Of Light Industry And Tourism",
+        field: "Fashion Design",
+        period: "2003 - 2007",
+      },
+    ];
+
+    // --- DOM Elements ---
+    const coreSkillsHolder = document.getElementById("core-skills-holder");
+    const additionalSkillsHolder = document.getElementById(
+      "additional-skills-holder"
+    );
+    const certificatesHolder = document.getElementById("certificates-holder");
+    const jobsHolder = document.getElementById("jobs-holder");
+    const educationHolder = document.getElementById("education-holder");
+    const bodyEl = document.body; // Use body directly
+    const sections = document.getElementsByClassName("section");
+    const navButtons = document.querySelectorAll(".buttons-hodler .btn");
+
+    // --- Functions ---
+
+    // Populate Skills
+    function populateSkills(skills, holder) {
+      holder.innerHTML = ""; // Clear existing
+      skills.forEach((skill) => {
+        const li = document.createElement("li");
+        const span = document.createElement("span"); // Wrap skill in span for styling
+        span.textContent = skill;
+        li.appendChild(span);
+        holder.appendChild(li);
+      });
+    }
+
+    // Populate Certificates
+    function populateCertificates() {
+      certificatesHolder.innerHTML = ""; // Clear existing
+      certificates.forEach((course) => {
+        const container = document.createElement("div"); // Container for each cert
+        container.style.marginBottom = "1.5rem"; // Add space between certs
+
+        const h4 = document.createElement("h4");
+        h4.textContent = course.name;
+        container.appendChild(h4);
+
+        const anchor = document.createElement("a");
+        anchor.className = "certf-anchor";
+        anchor.href = course.src;
+        anchor.textContent = "View Certificate";
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer"; // Security best practice
+        container.appendChild(anchor);
+
+        certificatesHolder.appendChild(container);
+      });
+    }
+
+    // Populate Work Experience
+    function populateExperience() {
+      jobsHolder.innerHTML = ""; // Clear existing
+      const projectStr = "Project: ";
+      const responsibilitiesStr = "Responsibilities:";
+      const technologiesStr = "Technologies Used:";
+
+      experiences.forEach((experience, index) => {
+        const entryDiv = document.createElement("div");
+        entryDiv.className = "job-entry"; // Card container
+
+        // Header part
+        const headerDiv = document.createElement("div");
+        headerDiv.className = "job-header";
+        const company = document.createElement("h4");
+        company.textContent = experience.company;
+        const period = document.createElement("p");
+        period.textContent = experience.period;
+        const position = document.createElement("span");
+        position.className = "position";
+        position.textContent = experience.position;
+        headerDiv.appendChild(company);
+        headerDiv.appendChild(period);
+        headerDiv.appendChild(position);
+        entryDiv.appendChild(headerDiv);
+
+        // Project description
+        const projectHolder = document.createElement("div");
+        const projectWord = document.createElement("b");
+        projectWord.textContent = projectStr;
+        projectHolder.appendChild(projectWord);
+        const projectDesc = document.createElement("span");
+        projectDesc.textContent = experience.project;
+        projectHolder.appendChild(projectDesc);
+        entryDiv.appendChild(projectHolder);
+
+        // Responsibilities
+        const responsibilitiesTitle = document.createElement("span");
+        responsibilitiesTitle.className = "job-section-title";
+        responsibilitiesTitle.textContent = responsibilitiesStr;
+        entryDiv.appendChild(responsibilitiesTitle);
+
+        const responsibilitiesUl = document.createElement("ul");
+        experience.responsibilities.forEach((resp) => {
+          const li = document.createElement("li");
+          li.textContent = resp.trim(); // Trim whitespace
+          responsibilitiesUl.appendChild(li);
+        });
+        entryDiv.appendChild(responsibilitiesUl);
+
+        // Technologies
+        const technologiesTitle = document.createElement("span");
+        technologiesTitle.className = "job-section-title";
+        technologiesTitle.textContent = technologiesStr;
+        entryDiv.appendChild(technologiesTitle);
+
+        const technologiesUl = document.createElement("ul");
+        technologiesUl.className = "technologies-list"; // Class for tag styling
+        experience.technologies.forEach((tech) => {
+          const li = document.createElement("li");
+          li.textContent = tech;
+          technologiesUl.appendChild(li);
+        });
+        entryDiv.appendChild(technologiesUl);
+
+        jobsHolder.appendChild(entryDiv);
+
+        // No need for <hr> between jobs if using cards
+      });
+    }
+
+    // Populate Education
+    function populateEducation() {
+      educationHolder.innerHTML = ""; // Clear existing
+      education.forEach((edu) => {
+        const entryDiv = document.createElement("div");
+        entryDiv.className = "education-entry";
+
+        const field = document.createElement("h4");
+        field.textContent = edu.field;
+        entryDiv.appendChild(field);
+
+        const institution = document.createElement("p");
+        institution.textContent = edu.institution;
+        entryDiv.appendChild(institution);
+
+        const period = document.createElement("p");
+        period.textContent = edu.period;
+        entryDiv.appendChild(period);
+
+        educationHolder.appendChild(entryDiv);
+      });
+    }
+
+    // Handle Section Change
+    const onInfoChange = (elID) => {
+      // Hide all sections
+      for (let i = 0; i < sections.length; i++) {
+        sections[i].classList.remove("show");
+      }
+      // Remove active class from all buttons
+      navButtons.forEach((btn) => btn.classList.remove("active"));
+
+      // Show the target section
+      const targetSection = document.getElementById(elID);
+      if (targetSection) {
+        targetSection.classList.add("show");
+      }
+
+      // Add active class to the clicked button
+      const activeButton = document.querySelector(
+        `.btn[onclick="onInfoChange('${elID}')"]`
+      );
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+    };
+
+    // Handle Theme Change
+    const onThemeChange = () => {
+      bodyEl.classList.toggle("dark");
+      localStorage.setItem(
+        "theme",
+        bodyEl.classList.contains("dark") ? "dark" : "light"
+      );
+    };
+
+    // Initialize theme based on localStorage or system preference (optional)
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === null) {
+        return;
+      }
+      if (savedTheme === "dark") {
+        bodyEl.classList.add("dark");
+      } else {
+        bodyEl.classList.remove("dark");
+      }
+    }
+
+    // --- Initialization ---
+    document.addEventListener("DOMContentLoaded", () => {
+      initializeTheme(); // Set initial theme
+      populateExperience();
+      populateCertificates();
+      populateSkills(coreSkills, coreSkillsHolder);
+      populateSkills(additionalSkills, additionalSkillsHolder);
+      populateEducation();
+
+      // Show the initial section (e.g., Work Experience) and set its button active
+      onInfoChange("jobs-section");
+    });
+  </script>
 </body>
-
-<script>
-  const coreSkills = [
-    'ReactJS',
-    'Redux',
-    'VueJS',
-    'Vuex',
-    'NextJS',
-    'JavaScript ES6',
-    'VanillaJS',
-    'SASS/LESS',
-    'SCSS',
-    'CSS3',
-    'HTML5',
-    'GitHub',
-    'Microsoft Azure',
-    'Bitbucket',
-    'GitLab',
-    'NPM',
-    'VS Code',
-  ]
-  const coreSkillsHolder = document.getElementById('core-skills-holder');
-
-  coreSkills.forEach(skill => {
-    const li = document.createElement('li');
-    li.innerHTML = skill;
-    coreSkillsHolder.appendChild(li)
-  });
-
-  const additionalSkills = [
-    'React Native',
-    'NodeJS',
-    'Express JS',
-    'MongoDB',
-    'Python',
-    'Django',
-    'noSQL',
-    'Bootstrap',
-    'JQuery',
-    'Passport JS',
-    'SVN',
-    'Jenkins',
-    'Trello',
-    'Google Analytics',
-    'Linux',
-  ]
-  const additionalSkillsHolder = document.getElementById('additional-skills-holder');
-
-  additionalSkills.forEach(skill => {
-    const li = document.createElement('li');
-    li.innerHTML = skill;
-    additionalSkillsHolder.appendChild(li)
-  });
-
-  const certificates = [
-    {
-      name: 'Next.js & React - The Complete Guide(incl. Two Paths!)',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBLb8IwEIT%2FSuR7HrZDIBZEAtJHVFLRFgrtzXWcYCmxg%2B0E%2Bu8b6IVeellppZ1vdmZqaFO3ZN7Zg3zlx44b66TDEJJaoeQMHKxtDfH9WlVCeo1gWhlVWiVrIbnHVONHbARZNIrduBghN4S0dCewHLtFwWGEJwGfQOxfbBBw3rk2VyzyAuBk6QxkAT3toyeE4WOpq0O8S5f9Or1%2F2FYv8TfKWT8%2Bnb5Qv9iF6a7tn%2FMj1nSz%2F8hXi2J7lw0MYzqeSWOptAM2QKELAzfAG4gJCgnEHkboEzjnppaGXNPOQKclUdQIQyRtuCGWkbd5viLDV6TVyiqmapBML9fkaqBv9P%2FLqTFcX6oDyVrIaqmk5MxO%2FRtW8rv9bT35AQ%3D%3D&RelayState=I0awX6K231Hfrgh9WDCvPDFGUgQ9y2Mcv7wwb2vBW4DWpvNMq3raTXYMLBdUEI',
-    },
-    {
-      name: 'Next.js by Example',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfJfLdieOYQCyIRAutEH8RUKr2FhkToibr1OuU8vYN9EIvvay00s43OzPEvK4aOW7dCTb6s9XovEk3SshdaWBETs41KIOgMkUJfl0qa9AcnYGqBO0rUwex6oUq7iU0OfQ4FWF%2BpIPw2KeHgw7jaMD0IIyCqw0n3l5bvGG5z4g3m4zIjKHiWTGn4hnEVC%2ByubLV%2FvLBvtabl9W66Yu3s9aLpa3mmiVPPFsV23OzexD2dTuedgzEVs8AXQ6uwzIuaMgoi3ZhJLmQUd%2FncfJOvO%2B6ApS3tCPSWpAmxxIl5LVG6ZTcjpcL2X0lG2ucUaYi6fB6LW8G9k7%2FvzxH1PZaHUmzEopHA6CVGwZ3rPR3%2B9t6%2BgM%3D&RelayState=I0sc2PgK-4Gn4EeLPKcrlVyk0vORUNOp74YweeLMrlKe09F2PNgSwpTB4rWSAE',
-    },
-    {
-      name: 'React and Typescript: Build a Portfolio Project',
-      src: 'https://www.udemy.com/certificate/UC-e090c701-efb4-4611-84f2-cad1ae41d17f/',
-    },
-    {
-      name: 'Advanced React.js',
-      src: 'https://app.pluralsight.com/learner/user/courses/reactjs-advanced/certificate',
-    },
-    {
-      name: 'Testing React Applications with Jest ',
-      src: 'https://app.pluralsight.com/learner/user/courses/testing-react-applications-jest/certificate',
-    },
-    {
-      name: 'React Web App Testing With NodeJs, Cypress WebDriverIO',
-      src: 'https://www.udemy.com/course/react-web-app-testing-with-nodejs-cypress-and-webdriverio/',
-    },
-    {
-      name: 'Building Applications with React and Redux',
-      src: 'https://app.pluralsight.com/learner/user/courses/react-redux-react-router-es6/certificate',
-    },
-    {
-      name: 'Building Applications with React and Flux',
-      src: 'https://app.pluralsight.com/learner/user/courses/react-flux-building-applications/certificate',
-    },
-    {
-      name: 'React: Getting Started',
-      src: 'https://app.pluralsight.com/learner/user/courses/react-js-getting-started/certificate',
-    },
-    {
-      name: 'Python Django - The Practical Guide',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfBfmeHzsJCRZEogUVpIIQIGi5VMaYxG2yTr1O6eM30Au99LLSSjPf7M4QRV01fNy6Etbqs1XoepNuaBBOGxiR0rkGeRBUptDg11pag%2BbsDFQalC9NHfRlQmU%2FGXiDU8K8mIqzl9Fz6p1OivajLFQZjYJrDCO9nbJ4wzI%2FJL35ZETmIS5asXufPTXZUZvmKxWX5mVRHG04K5bxRe1ZeVhN2UOKLqbFfj0tN29bu2zj1%2F3HoWMgtmoO6AS4Dhuy2KOhF0ZbGnEW8yTxaZp1uu%2B6AuS3b0ektcCNQI0cRK2QO8k348Uz767ijTXOSFORfHhV81uAvfP%2FbxeIyl6rI%2FlKQ%2FFoAJR0w%2BCOlf9uf1vPfwA%3D&RelayState=I0sMuaVjHGp8biopv7awpXMgbr0HgN4weW2hZPE2B7st41gWREhS_TrNu4YWkZ',
-    },
-    {
-      name: '100 Days of Code: The Complete Python Pro Bootcamp for 2022',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfJfLdSZw%2FggWRUtKqFJAQVEXiZowhRsk62E5UePqG9EIvvay00s43OzMxrK4amre2hI24tsJYp%2BiHBGalgikqrW0M9bxKnSW4teRaGXWyCioJwuWq9hIeE57EYzw%2BxgGOCDvhlJxG%2BHgUJAlTX6Qk9B42AXK%2BhDYDNnB95MyLKZr7%2B5EcyzvBt5ysq4%2Fta7PFl81usdJNcShWOe6ie75QL4uO3d6u3exQRpflqHtn5TXZ9QxjWjEHYxnYHusHESY%2B9sNPEtIgpiR1AxLvkfNdV2DokHaKWg1UMSMNBVYLQy2n23y1pP1XtNHKKq4qlE0e13Qw0E%2F6%2F%2BXMGKEf1aFsLeE8UwCC24n3xMp%2Bt7%2BtZz8%3D&RelayState=I0Z7i9iz1-yA1PlJSEpS-jRWKMrpDbDMA-v4zAKoBKvayFqvCbh4jL7vHahq6W',
-    },
-    {
-      name: 'NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZDNbsIwEIRfJfI9xM4fwYJIqLQiKqiFpqD2UhnjgEuypl5HKjx9A73QSy8rjTTzjXaGKJr6yMet28NSfbUKnTfpjgbhtIER2Tt3RB4Etdlp6DVaWoOmcgZqDaonTROkMmEyTQb%2BYJuEfsxE5Wes6vvbrWJplFGVsSi41ITEWymLV2zYo8QrJiNSUKPLB5dkppn1x5vp4mnxdv50h8e1Xc3Lj5NfbeAgqrSM6Wo9BSeKAW5qutTn%2B%2Fo16hiIrSoAnQDXYWkY%2B4z6NCpZzCnlYVeUJu%2FE%2B25qQH79dkRaC9wI1MhBNAq5k%2FxlPJ%2FxzsyP1jgjTU3y4cXNrwX2Jv9%2FXCAqe5mO5M8adncGQEk3DG5Y%2Ba%2F6u3r%2BAw%3D%3D&RelayState=I0oiTFt58omL7AbHQOQYzjtkKWrVMT_y-fbnkaf6T40VWHntaI9sbl0RizElU3',
-    },
-    {
-      name: 'MongooseJS Essentials - Learn MongoDB for Node.js',
-      src: 'https://www.udemy.com/certificate/UC-IM34X7GG/',
-    },
-    {
-      name: 'Coding and testing an authentication API [NodeJs + Cypress]',
-      src: 'https://www.udemy.com/course/coding-and-testing-an-authentication-api-nodejs-cypress/',
-    },
-    {
-      name: 'React Native - The Practical Guide[2022]',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBfa8IwFMW%2FSsl72qT%2FbEMtVGVQUJQpG%2FoiIcY2mCYuSbe6T7%2FqXtzLXi5cuOd37jmFpZ28kqp3rXrlHz23zluMQyjqhFZT0Dp3tSQIpG6E8jvBjLb67LSSQnGf6S5IWYJZmuQwPyUhjDE9wwyfJ%2FB04jiNMsQzHAV3mxB4b9zYBzb0EfDqxRTUaBZfjHyZu3repNthvWzfq9uwynUujp%2FQZAe6Pi6H236TTNwi322bYZ9%2FyYvs2%2B9qNjKs7XmtrKPKjVgUxhAjiKIdjkiUkxj5COMD8IZOKkseaaegN4poaoUlinbcEsfItlotyfgVuRrtNNMSlMX9mjwMzJP%2Bfzm1lpt7daDcCNXMtVKcuSJ4YpW%2F29%2FWyx8%3D&RelayState=I0B4krlFCtICg6SxOLhWAyxM9o9i_v-r8ZaO_LxyYP57tD9TSgxY9wlkluhzAB',
-    },
-    {
-      name: 'Fastlane for React Native: Deploy your app autonomously!',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBfa8IwFMW%2FSsl726QxtQYtaGVS2ETq2KgvkqWpBtobl6T78%2B1X3Yt72cuFC%2Ff8zj1n7kTfXfhy8Geo1PugnA%2FW49AgvDawQGfvL47HcWdOGqJeS2ucab2BToOKpOnjVDIiUzYLZw1LwgkRbZiRdho2jSIpzbDKCI2vNgkKXpR1N2wSYRSU6wUq8YYNVfEh60MlGQ7L%2Bvt83ArI4PXhtPLUmpo2Im0%2Bj12xYkUi37ZVvdtIWbaHvR4Zzg2qBOcF%2BBGLk0lIcIjpM6E8YZyyCE%2FJAQVffQeO39Iu0GCBG%2BG04yB65biXfL98euTjV%2FxijTfSdCifX6%2F5zcDe6f%2BXC%2BeUvVaH8p2GU2EAlPTz%2BI6V%2F25%2FW89%2FAA%3D%3D&RelayState=I0G5uRCvcYZRc50-IYyh_Nan8nWFgBt3roY3da6dw_lCB5C2cbNRYPGccIfZSi',
-    },
-    {
-      name: 'Master React Native Animations',
-      src: 'https://login.microsoftonline.com/6c51c659-9d52-41af-81f7-dde16380e813/saml2?SAMLRequest=fZBBb4JAEIX%2FCtn7Aguu1Y2SELWNjTRWWw%2Fetusia2GWMktD%2B%2BsL9mIvvUwyybzvzXszlFVZi7R1Bez0R6vRect%2BGJDOWJiTwrkaRRCU9mzAr4xqLNrcWSgNaF%2FZKhgrztSYT%2Bn0xCM6YjKnE5bf0dNJs3E8CfWExcFgExHvoBu8YiM%2FJN56OSfrsMi7lNJp1i7u28hALlNm4bl6fdJm%2F37UF0ZXD4dNV38W3TbjX2%2Br3SV73NdZVuJ3z0Bs9RrQSXA9NoxGlIU0jF9YLCIueOzHPDwSr6tKQHFNOydtA8JKNChAVhqFU2KfZhvRfyXqxjqrbEmS2XAtrgbNjf5%2FuUTUzVAdSbYGzgsLoJWbBTes5Hf723ryAw%3D%3D&RelayState=I0hfxA--9MuCFu2infaA1onQmUNeiSkZej1-EGVLxpvhxPM5ybERjMJSpMMlsz',
-    },
-    {
-      name: 'API Testing with JavaScript and Cypress 10',
-      src: 'https://www.udemy.com/course/api-testing-with-javascript-and-cypress-10/',
-    },
-    {
-      name: 'CYPRESS | Step-by-Step for Beginners | Hands-On Training',
-      src: 'https://www.udemy.com/course/cypress-step-by-step-for-beginners-hands-on-training',
-    },
-    {
-      name: 'Cypress 10 Component Testing Tutorial',
-      src: 'https://www.udemy.com/course/cypress-10-component-testing-tutorial/',
-    },
-    {
-      name: 'Complete JavaScript Course For Beginners to Master - 2019',
-      src: 'https://www.udemy.com/certificate/UC-ba55b644-7dec-451c-9384-4431c9bf6c03/',
-    },
-    {
-      name: 'ExpressJS Fundamentals',
-      src: 'https://www.udemy.com/certificate/UC-617I2F70/',
-    },
-    {
-      name: 'MongoDB Essentials - Understand the Basics of MongoDB',
-      src: 'https://www.udemy.com/certificate/UC-MTY59VZL/',
-    },
-    {
-      name: 'Bootstrap 4 Quick Start: Code Modern Responsive Websites',
-      src: 'https://www.udemy.com/certificate/UC-5V4BPVZ8/',
-    },
-    {
-      name: 'Complete Regex Crash Course',
-      src: 'https://www.udemy.com/certificate/UC-K4B5RSON/',
-    },
-    {
-      name: 'Front End Libraries Project',
-      src: 'https://www.freecodecamp.org/certification/netbk13tu/front-end-development-libraries',
-    },
-    {
-      name: 'JavaScript Algorithms and Data Structures',
-      src: 'https://www.freecodecamp.org/certification/netbk13tu/javascript-algorithms-and-data-structures',
-    },
-    {
-      name: 'Responsive Web Design',
-      src: 'https://www.freecodecamp.org/certification/netbk13tu/responsive-web-design',
-    },
-    {
-      name: 'SVG basics for beginners - concepts explained with examples',
-      src: 'https://www.udemy.com/certificate/UC-RDPOI4FO/',
-    },
-    {
-      name: 'Sass Workflow',
-      src: 'https://www.udemy.com/certificate/UC-PTE9G58U/',
-    },
-    {
-      name: 'npm - Mastering the Basics',
-      src: 'https://www.udemy.com/certificate/UC-SA3OZKHR/',
-    },
-    {
-      name: 'JavaScript Tutorial',
-      src: 'https://www.sololearn.com/Certificate/CT-BJWMJTKZ/pdf',
-    },
-    {
-      name: 'Learn Webpack 2 from scratch',
-      src: 'https://www.udemy.com/certificate/UC-F175FKFG/',
-    },
-    {
-      name: 'Regex Academy: An Introduction To Text Parsing Sorcery',
-      src: 'https://www.udemy.com/certificate/UC-TT8DPQU6/',
-    },
-  ];
-  const certificatesHolder = document.getElementById('certificates-holder');
-
-  certificates.forEach(cource => {
-    const h4 = document.createElement('h4');
-    h4.innerHTML = cource.name;
-    certificatesHolder.appendChild(h4)
-
-    const anchor = document.createElement('a');
-    anchor.className = 'certf-anchor';
-    anchor.href = cource.src;
-    anchor.innerHTML = 'Certificate';
-    anchor.target = '_blank';
-    certificatesHolder.appendChild(anchor)
-  });
-
-  const experiences = [
-    {
-      company: 'Dream Dev',
-      period: 'March 2025 - April 2025',
-      position: 'Software Developer',
-      project: 'SPA that allows users to create and chat with a person using AI.',
-      responsibilities: [
-        'Work on the FE part of the project',
-        'Create reusable components',
-        'Create landing pages ',
-        'Working with SCSS and bootstrap',
-      ],
-      technologies: [
-        'Vue JS',
-        'SCSS',
-        'Bootstrap',
-      ],
-    },
-    {
-      company: 'Hades Defense Systems',
-      period: 'July 2023 - May 2024',
-      position: 'Software Developer',
-      project: 'Building management and operation software for drones. Including real-time streaming, mission management and monitoring.',
-      responsibilities: [
-        'Work on the FE part of the project',
-        'Writing unit tests',
-        'Working with CSS modules',
-        'Create, edit, upload drone missions using maps, elevations etc.',
-      ],
-      technologies: [
-        'NextJS',
-        'Redux',
-        'React - Router',
-        'Iconify',
-        'JSX',
-        'Figma',
-        'React Google Maps',
-        'ESlint',
-        'Datepicker',
-        'ChartJS',
-        'Prettier',
-        'Axios',
-        'JSON web token',
-        'Jest',
-        'SASS',
-      ],
-    },
-    {
-      company: 'Mentormate',
-      period: 'January 2022 - May 2022',
-      position: 'Software Developer',
-      project: 'There where two projects for the biggest and world known Basketball Association. The first project was a CMS Project for the clients (basketball teams) to manage there own website pages - add, remove, arrange different elements in every page. The second project was to work on all websites for all Basketball teams. Managing the websites, make changes to them, deal with adds, merchandise.',
-      responsibilities: [
-        'Work on the FE part of both projects',
-        'Writing unit test for components and logical JS files',
-        'Using CSS modules',
-        'Doing tasks on CMS webside that will send data to the FE websites of all NBA teams and working on the FE tasks on that project as well',
-        'Handling embed codes and retrieving info from them to generate different components',
-      ],
-      technologies: [
-        'React (with ContextAPI and Hooks)',
-        'Redux',
-        'React - Router',
-        'JSX',
-        'Figma',
-        'Azure',
-        'Swagger',
-        'SCSS',
-        'Chakra UI',
-        'Axios',
-        'date-fns',
-        'Formik',
-        'react-datepicker',
-        'Lodash',
-      ],
-    },
-    {
-      company: 'Mentormate',
-      period: 'October 2021 - November 2021',
-      position: 'Software Developer',
-      project: "The project intended to create a new interface for an analytics flagship software product. The old version of the app was a desktop one, the new one is a web-based app. The main priority was to improve the user experience for the parts of the application that are used by users most frequently. The application's aim is to provide in-depth analysis and simulation of electricity markets, based on numerous data items that represent real-life entities like energy sources (power stations, renewables, and many more), energy consumption (electricity load) and weather variability, prices, financial instruments, portfolio management and resource planning. ",
-      responsibilities: [
-        'Created, edited, deleted and managed data and graphs for solar panels and windmill. Worked with items history data',
-        'Gave the user option to see and edit data',
-        'Uploaded and downloaded data for items in Excel format',
-        'Showed items location on the map',
-      ],
-      technologies: [
-        'React',
-        'Redux',
-        'React - Router',
-        'React (with Hooks)',
-        'JSX',
-        'Figma',
-        'Azure',
-        'Swagger',
-        'SCSS',
-        'Chakra UI',
-        'Axios',
-        'date-fns',
-        'Formik',
-        'Lodash',
-        'react-datepicker',
-      ],
-    },
-    {
-      company: 'Mentormate',
-      period: 'July 2021 - September 2021',
-      position: 'Software Developer',
-      project: 'The client is creating a blood sample testing device that will accept a cartridge containing a blood sample, and provide the user with options for performing automated tests on the sample. MentorMate assisted with the software development. This was a staff augmentation project.',
-      responsibilities: [
-        'Created a new admin website Managed ',
-        'and edited drugs and their info Wrote ',
-        'Unit tests with Mocha and Chai',
-      ],
-      technologies: [
-        'VueJS',
-        'Vuex',
-        'Vue-Router',
-        'SCSS',
-        'Lodash',
-        'Axios',
-        'Bootstrap 4',
-        'Mocha Testing',
-        'moment JS',
-        'Chai',
-      ],
-    },
-    {
-      company: 'Mentormate',
-      period: 'February 2021 - June 2021',
-      position: 'Software Developer',
-      project: "A highly customizable idea-sharing platform, tailored to fit the needs of our client's clients. Svetozar's work is concentrated on the FE implementation of the product and to provide not only quality but well-tested solutions as well.",
-      responsibilities: [
-        'Created a new admin website',
-        'Rewrote and maintained one of their old websites',
-        'Used different routing for different user roles',
-        'Worked on cross-platform',
-        'E2E testing with Playwright',
-      ],
-      technologies: [
-        'React',
-        'TypeScript',
-        'React (with Hooks)',
-        'Redux',
-        'React - Router',
-        'JSX',
-        'SCSS',
-        'Local Storage',
-        'Playwright',
-      ],
-    },
-    {
-      company: 'Mentormate',
-      period: 'July 2020 - January 2021',
-      position: 'Software Developer',
-      project: "Web application that helps people with diabetes to check their readings using a glucometer, upload them, and see them through in this web application. The web app is based on the existing website but is written with the latest ReactJS version at the time. Svetozar's work was concentrated on the FE implementation of the product.",
-      responsibilities: [
-        'Created new React app',
-        'Worked on Website with accessibility features',
-        'Used of different routing for different user roles',
-        'Made demos to the client with the new features every couple of weeks',
-      ],
-      technologies: [
-        'React',
-        'React (with Hooks)',
-        'JSX',
-        'SCSS',
-        'Local Storage',
-        'Swagger',
-        'AWS',
-      ],
-    },
-    {
-      company: 'Price International',
-      period: 'June 2020 - July 2020',
-      position: 'Front-end developer',
-      project: 'SPA application that manages Mobile companies.',
-      responsibilities: [
-        'Create new Vue JS project',
-        'Create reusable components',
-        'Usage of Vuex',
-        'Usage of routing',
-      ],
-      technologies: [
-        'VueJS',
-        'Vuex',
-        'CSS3',
-        'SASS/LESS',
-      ],
-    },
-    {
-      company: '1 ForFit',
-      period: 'October 2019 - April 2020',
-      position: 'Front-end developer',
-      project: "Websites for generating diets. Svetozar's work was concentrated on the FE implementation of the product.",
-      responsibilities: [
-        'Started of a new Vue JS SPA project',
-        'Created SASS animations to avoid animations made by JS ',
-        'Optimized old functions for better performance',
-        'Usage of routing',
-      ],
-      technologies: [
-        'Vanilla JS',
-        'VueJS',
-        'Vuex',
-        'CSS3',
-        'CSS Animations',
-        'SASS/LESS',
-      ],
-    },
-    {
-      company: 'EGT',
-      period: 'April 2018 - October 2019',
-      position: 'Software developer',
-      project: "Responsive online casino games that work on all devices and browsers. Svetozar's work was concentrated on the FE implementation of the product.",
-      responsibilities: [
-        'Created new responsive games',
-        'Created new features for every game',
-        'Made them work properly for different devices and browsers',
-        'Rewrite old games on Vue JS',
-      ],
-      technologies: [
-        'Vanilla JS',
-        'VueJS',
-        'Vuex',
-        'CSS3',
-        'CSS Animations',
-        'SASS/LESS',
-      ],
-    },
-    {
-      company: 'DB Office',
-      period: 'September 2017 - April 2018',
-      position: 'Software developer',
-      project: 'Create bot to scrape websites, create offers for clients and send them.',
-      responsibilities: [
-        'Learn UbotStudio',
-        'Inspect code of previous bot',
-        'Create new bot that works for 4 websites',
-      ],
-      technologies: [
-        'Vanilla JS',
-        'UbotStudio',
-      ],
-    },
-  ]
-  const jobsHolder = document.getElementById('jobs-holder');
-  const projectStr = 'Project: ';
-  const responsibilitiesStr = 'Responsibilities:';
-  const technologiesStr = 'Technologies used:';
-
-  experiences.forEach((experience, index) => {
-    const company = document.createElement('h4');
-    company.innerHTML = experience.company;
-    jobsHolder.appendChild(company);
-
-    const period = document.createElement('h4');
-    period.innerHTML = experience.period;
-    jobsHolder.appendChild(period);
-
-    const positionHolder = document.createElement('div');
-    const position = document.createElement('b');
-    position.innerHTML = experience.position;
-    positionHolder.appendChild(position);
-    jobsHolder.appendChild(positionHolder);
-
-    const projectWord = document.createElement('b');
-    projectWord.innerHTML = projectStr;
-    jobsHolder.appendChild(projectWord);
-    const project = document.createElement('span');
-    project.innerHTML = experience.project;
-    jobsHolder.appendChild(project);
-
-    const responsibilityWordHolder = document.createElement('div');
-    const responsibilitiesWord = document.createElement('b');
-    responsibilitiesWord.innerHTML = responsibilitiesStr;
-    responsibilityWordHolder.appendChild(responsibilitiesWord);
-    jobsHolder.appendChild(responsibilityWordHolder);
-    const responsibilitiesUl = document.createElement('ul');
-    responsibilitiesUl.classList = 'col-1';
-
-    experience.responsibilities.forEach(responsibility => {
-      const responsibilityLi = document.createElement('li');
-      responsibilityLi.innerHTML = responsibility;
-      responsibilitiesUl.appendChild(responsibilityLi);
-    });
-    jobsHolder.appendChild(responsibilitiesUl);
-
-    const technologiesWord = document.createElement('b');
-    technologiesWord.innerHTML = technologiesStr;
-    jobsHolder.appendChild(technologiesWord);
-    const technologiesUl = document.createElement('ul');
-    technologiesUl.classList = 'col-3';
-
-    experience.technologies.forEach(technology => {
-      const technologyLi = document.createElement('li');
-      technologyLi.innerHTML = technology;
-      technologiesUl.appendChild(technologyLi);
-    });
-    jobsHolder.appendChild(technologiesUl);
-    jobsHolder.appendChild(document.createElement('br'));
-
-    if (index < experiences.length - 1) {
-      const jobHr = document.createElement('hr');
-      jobHr.classList = 'inner-hr'
-      jobsHolder.appendChild(jobHr);
-    }
-  });
-
-  const onInfoChange = (elID) => {
-    const sections = document.getElementsByClassName('section');
-    for (let i = 0; i < sections.length; i++) {
-      sections[i].classList.remove('show');
-    }
-
-    document.getElementById(elID).classList.add('show');
-  }
-
-  const onThemeChange = () => {
-    const bodyClassList = document.getElementsByTagName('body')[0].classList;
-    bodyClassList.contains('dark') ? bodyClassList.remove('dark') : bodyClassList.add('dark');
-  }
-</script>
 
 </html>
