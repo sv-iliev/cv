@@ -256,7 +256,7 @@
       display: grid;
       justify-items: center;
       gap: var(--grid-gap);
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       align-items: center;
       margin-top: 1.5rem;
     }
@@ -695,7 +695,8 @@
         order: 2;
       }
 
-      .contact-holder:nth-child(3) {
+      .contact-holder:nth-child(3),
+      .contact-holder:nth-child(4) {
         order: 3;
       }
 
@@ -791,7 +792,8 @@
     </button>
 
     <header class="header">
-      <img src="https://i.ibb.co/R4DMNhRr/profile.png" alt="Svetozar Iliev profile picture" class="prof-img" />
+      <img src="https://i.ibb.co/DDMG6nhR/38989589-2f04-4a76-869f-26822c075b43-modified.png"
+        alt="Svetozar Iliev profile picture" class="prof-img" />
       <h1 class="m-b-1">Svetozar Iliev</h1>
       <h2 class="m-b-1">(Zak)</h2>
       <h4 class="m-b-2">Software Developer</h4>
@@ -833,7 +835,6 @@
         <a href="https://www.linkedin.com/in/svetozar-iliev-1b7237bb/" target="_blank" rel="noopener noreferrer"
           class="contact-holder">
           <span class="cont-icon linkedin-icon">
-            <!-- Add class for specific styling -->
             <svg width="24px" height="24px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="2" y="2" width="28" height="28" rx="14" fill="#1275B1" />
               <path
@@ -846,6 +847,31 @@
             </svg>
           </span>
           <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/sv-iliev?tab=repositories" target="_blank" rel="noopener noreferrer"
+          class="contact-holder">
+          <span class="cont-icon linkedin-icon">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="840.000000pt" height="561.000000pt"
+              viewBox="0 0 840.000000 561.000000" preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,561.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                <path d="M2976 5111 c-72 -235 -72 -439 -1 -645 l24 -70 -54 -56 c-188 -197
+-257 -464 -259 -990 -1 -230 2 -265 22 -360 98 -449 397 -757 882 -910 69 -22
+176 -49 239 -60 63 -11 116 -22 119 -24 2 -3 -8 -20 -22 -38 -53 -71 -97 -203
+-119 -357 l-12 -84 -53 -18 c-82 -28 -205 -42 -301 -36 -257 19 -438 132 -596
+372 -108 164 -199 248 -326 297 -71 28 -254 37 -284 15 -29 -22 -9 -55 66
+-107 35 -24 84 -66 107 -94 72 -84 195 -276 271 -423 82 -159 157 -256 257
+-332 87 -66 207 -125 310 -152 134 -36 393 -37 532 -2 l22 5 0 -321 0 -321
+640 0 640 0 0 584 c0 479 -3 598 -15 663 -24 128 -81 278 -123 326 -8 9 -13
+19 -10 22 3 3 45 12 94 21 631 107 1031 448 1146 974 20 95 22 130 22 365 -1
+526 -69 783 -261 987 l-54 57 16 37 c57 138 78 345 51 504 -24 137 -64 260
+-85 260 -36 0 -129 -33 -200 -71 -132 -71 -250 -178 -366 -332 -58 -78 -58
+-78 -79 -58 -90 82 -317 128 -676 138 -425 11 -731 -34 -859 -127 l-40 -30
+-57 78 c-139 189 -328 337 -493 386 -86 25 -85 26 -115 -73z" />
+              </g>
+            </svg>
+          </span>
+          <span>GitHub</span>
         </a>
       </div>
     </header>
@@ -925,11 +951,11 @@
             <p>Create projects</p>
           </div>
 
-          <div class="education-entry">
+          <!-- <div class="education-entry">
             <h4>Fashion Design</h4>
             <p>Vocational School Of Light Industry And Tourism</p>
             <p>2003 - 2007</p>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
@@ -1118,20 +1144,20 @@
       },
     ];
     const experiences = [
-      {
-        company: "Dream Dev",
-        period: "March 2025 - April 2025",
-        position: "Software Developer",
-        project:
-          "SPA that allows users to create and chat with a person using AI.",
-        responsibilities: [
-          "Work on the FE part of the project",
-          "Create reusable components",
-          "Create landing pages ",
-          "Working with SCSS and bootstrap",
-        ],
-        technologies: ["Vue JS", "SCSS", "Bootstrap"],
-      },
+      // {
+      //   company: "Dream Dev",
+      //   period: "March 2025 - April 2025",
+      //   position: "Software Developer",
+      //   project:
+      //     "SPA that allows users to create and chat with a person using AI.",
+      //   responsibilities: [
+      //     "Work on the FE part of the project",
+      //     "Create reusable components",
+      //     "Create landing pages ",
+      //     "Working with SCSS and bootstrap",
+      //   ],
+      //   technologies: ["Vue JS", "SCSS", "Bootstrap"],
+      // },
       {
         company: "Hades Defense Systems",
         period: "July 2023 - May 2024",
@@ -1162,150 +1188,189 @@
           "SASS",
         ],
       },
+      //#region Mentormate SUMMARY
       {
         company: "Mentormate",
-        period: "January 2022 - May 2022",
+        period: "July 2020 - May 2022",
         position: "Software Developer",
-        project:
-          "There where two projects for the biggest and world known Basketball Association. The first project was a CMS Project for the clients (basketball teams) to manage there own website pages - add, remove, arrange different elements in every page. The second project was to work on all websites for all Basketball teams. Managing the websites, make changes to them, deal with adds, merchandise.",
+        project: "Five different projects.",
         responsibilities: [
-          "Work on the FE part of both projects",
-          "Writing unit test for components and logical JS files",
-          "Using CSS modules",
-          "Doing tasks on CMS webside that will send data to the FE websites of all NBA teams and working on the FE tasks on that project as well",
-          "Handling embed codes and retrieving info from them to generate different components",
+          "Working as a FE developer.",
         ],
         technologies: [
           "React (with ContextAPI and Hooks)",
           "Redux",
           "React - Router",
           "JSX",
-          "Figma",
-          "Azure",
-          "Swagger",
-          "SCSS",
-          "Chakra UI",
-          "Axios",
-          "date-fns",
-          "Formik",
-          "react-datepicker",
-          "Lodash",
-        ],
-      },
-      {
-        company: "Mentormate",
-        period: "October 2021 - November 2021",
-        position: "Software Developer",
-        project:
-          "The project intended to create a new interface for an analytics flagship software product. The old version of the app was a desktop one, the new one is a web-based app. The main priority was to improve the user experience for the parts of the application that are used by users most frequently. The application's aim is to provide in-depth analysis and simulation of electricity markets, based on numerous data items that represent real-life entities like energy sources (power stations, renewables, and many more), energy consumption (electricity load) and weather variability, prices, financial instruments, portfolio management and resource planning. ",
-        responsibilities: [
-          "Created, edited, deleted and managed data and graphs for solar panels and windmill. Worked with items history data",
-          "Gave the user option to see and edit data",
-          "Uploaded and downloaded data for items in Excel format",
-          "Showed items location on the map",
-        ],
-        technologies: [
-          "React",
-          "Redux",
-          "React - Router",
-          "React (with Hooks)",
-          "JSX",
-          "Figma",
-          "Azure",
-          "Swagger",
-          "SCSS",
-          "Chakra UI",
-          "Axios",
-          "date-fns",
-          "Formik",
-          "Lodash",
-          "react-datepicker",
-        ],
-      },
-      {
-        company: "Mentormate",
-        period: "July 2021 - September 2021",
-        position: "Software Developer",
-        project:
-          "The client is creating a blood sample testing device that will accept a cartridge containing a blood sample, and provide the user with options for performing automated tests on the sample. MentorMate assisted with the software development. This was a staff augmentation project.",
-        responsibilities: [
-          "Created a new admin website Managed ",
-          "and edited drugs and their info Wrote ",
-          "Unit tests with Mocha and Chai",
-        ],
-        technologies: [
-          "VueJS",
+          "TypeScript",
+          "Vue JS",
           "Vuex",
           "Vue-Router",
-          "SCSS",
-          "Lodash",
-          "Axios",
-          "Bootstrap 4",
-          "Mocha Testing",
-          "moment JS",
-          "Chai",
-        ],
-      },
-      {
-        company: "Mentormate",
-        period: "February 2021 - June 2021",
-        position: "Software Developer",
-        project:
-          "A highly customizable idea-sharing platform, tailored to fit the needs of our client's clients. Svetozar's work is concentrated on the FE implementation of the product and to provide not only quality but well-tested solutions as well.",
-        responsibilities: [
-          "Created a new admin website",
-          "Rewrote and maintained one of their old websites",
-          "Used different routing for different user roles",
-          "Worked on cross-platform",
-          "E2E testing with Playwright",
-        ],
-        technologies: [
-          "React",
-          "TypeScript",
-          "React (with Hooks)",
-          "Redux",
-          "React - Router",
-          "JSX",
-          "SCSS",
-          "Local Storage",
-          "Playwright",
-        ],
-      },
-      {
-        company: "Mentormate",
-        period: "July 2020 - January 2021",
-        position: "Software Developer",
-        project:
-          "Web application that helps people with diabetes to check their readings using a glucometer, upload them, and see them through in this web application. The web app is based on the existing website but is written with the latest ReactJS version at the time. Svetozar's work was concentrated on the FE implementation of the product.",
-        responsibilities: [
-          "Created new React app",
-          "Worked on Website with accessibility features",
-          "Used of different routing for different user roles",
-          "Made demos to the client with the new features every couple of weeks",
-        ],
-        technologies: [
-          "React",
-          "React (with Hooks)",
-          "JSX",
-          "SCSS",
-          "Local Storage",
+          "Figma",
+          "Azure",
           "Swagger",
+          "Chakra UI",
+          "Axios",
+          "Formik",
+          "react-datepicker",
+          "SCSS",
+          "date-fns Lodash",
+          "Bootstrap 4",
+          "moment.js",
+          "HTML5 Local Storage",
+          "Chai",
+          "Mocha Testing",
+          "Playwright",
           "AWS",
         ],
       },
-      {
-        company: "Price International",
-        period: "June 2020 - July 2020",
-        position: "Front-end developer",
-        project: "SPA application that manages Mobile companies.",
-        responsibilities: [
-          "Create new Vue JS project",
-          "Create reusable components",
-          "Usage of Vuex",
-          "Usage of routing",
-        ],
-        technologies: ["VueJS", "Vuex", "CSS3", "SASS/LESS"],
-      },
+      //#endregion
+      //#region Mentormate by projects
+      // {
+      //   company: "Mentormate",
+      //   period: "January 2022 - May 2022",
+      //   position: "Software Developer",
+      //   project:
+      //     "There where two projects for the biggest and world known Basketball Association. The first project was a CMS Project for the clients (basketball teams) to manage there own website pages - add, remove, arrange different elements in every page. The second project was to work on all websites for all Basketball teams. Managing the websites, make changes to them, deal with adds, merchandise.",
+      //   responsibilities: [
+      //     "Work on the FE part of both projects",
+      //     "Writing unit test for components and logical JS files",
+      //     "Using CSS modules",
+      //     "Doing tasks on CMS webside that will send data to the FE websites of all NBA teams and working on the FE tasks on that project as well",
+      //     "Handling embed codes and retrieving info from them to generate different components",
+      //   ],
+      //   technologies: [
+      //     "React (with ContextAPI and Hooks)",
+      //     "Redux",
+      //     "React - Router",
+      //     "JSX",
+      //     "Figma",
+      //     "Azure",
+      //     "Swagger",
+      //     "SCSS",
+      //     "Chakra UI",
+      //     "Axios",
+      //     "date-fns",
+      //     "Formik",
+      //     "react-datepicker",
+      //     "Lodash",
+      //   ],
+      // },
+      // {
+      //   company: "Mentormate",
+      //   period: "October 2021 - November 2021",
+      //   position: "Software Developer",
+      //   project:
+      //     "The project intended to create a new interface for an analytics flagship software product. The old version of the app was a desktop one, the new one is a web-based app. The main priority was to improve the user experience for the parts of the application that are used by users most frequently. The application's aim is to provide in-depth analysis and simulation of electricity markets, based on numerous data items that represent real-life entities like energy sources (power stations, renewables, and many more), energy consumption (electricity load) and weather variability, prices, financial instruments, portfolio management and resource planning. ",
+      //   responsibilities: [
+      //     "Created, edited, deleted and managed data and graphs for solar panels and windmill. Worked with items history data",
+      //     "Gave the user option to see and edit data",
+      //     "Uploaded and downloaded data for items in Excel format",
+      //     "Showed items location on the map",
+      //   ],
+      //   technologies: [
+      //     "React",
+      //     "Redux",
+      //     "React - Router",
+      //     "React (with Hooks)",
+      //     "JSX",
+      //     "Figma",
+      //     "Azure",
+      //     "Swagger",
+      //     "SCSS",
+      //     "Chakra UI",
+      //     "Axios",
+      //     "date-fns",
+      //     "Formik",
+      //     "Lodash",
+      //     "react-datepicker",
+      //   ],
+      // },
+      // {
+      //   company: "Mentormate",
+      //   period: "July 2021 - September 2021",
+      //   position: "Software Developer",
+      //   project:
+      //     "The client is creating a blood sample testing device that will accept a cartridge containing a blood sample, and provide the user with options for performing automated tests on the sample. MentorMate assisted with the software development. This was a staff augmentation project.",
+      //   responsibilities: [
+      //     "Created a new admin website Managed ",
+      //     "and edited drugs and their info Wrote ",
+      //     "Unit tests with Mocha and Chai",
+      //   ],
+      //   technologies: [
+      //     "VueJS",
+      //     "Vuex",
+      //     "Vue-Router",
+      //     "SCSS",
+      //     "Lodash",
+      //     "Axios",
+      //     "Bootstrap 4",
+      //     "Mocha Testing",
+      //     "moment JS",
+      //     "Chai",
+      //   ],
+      // },
+      // {
+      //   company: "Mentormate",
+      //   period: "February 2021 - June 2021",
+      //   position: "Software Developer",
+      //   project:
+      //     "A highly customizable idea-sharing platform, tailored to fit the needs of our client's clients. Svetozar's work is concentrated on the FE implementation of the product and to provide not only quality but well-tested solutions as well.",
+      //   responsibilities: [
+      //     "Created a new admin website",
+      //     "Rewrote and maintained one of their old websites",
+      //     "Used different routing for different user roles",
+      //     "Worked on cross-platform",
+      //     "E2E testing with Playwright",
+      //   ],
+      //   technologies: [
+      //     "React",
+      //     "TypeScript",
+      //     "React (with Hooks)",
+      //     "Redux",
+      //     "React - Router",
+      //     "JSX",
+      //     "SCSS",
+      //     "Local Storage",
+      //     "Playwright",
+      //   ],
+      // },
+      // {
+      //   company: "Mentormate",
+      //   period: "July 2020 - January 2021",
+      //   position: "Software Developer",
+      //   project:
+      //     "Web application that helps people with diabetes to check their readings using a glucometer, upload them, and see them through in this web application. The web app is based on the existing website but is written with the latest ReactJS version at the time. Svetozar's work was concentrated on the FE implementation of the product.",
+      //   responsibilities: [
+      //     "Created new React app",
+      //     "Worked on Website with accessibility features",
+      //     "Used of different routing for different user roles",
+      //     "Made demos to the client with the new features every couple of weeks",
+      //   ],
+      //   technologies: [
+      //     "React",
+      //     "React (with Hooks)",
+      //     "JSX",
+      //     "SCSS",
+      //     "Local Storage",
+      //     "Swagger",
+      //     "AWS",
+      //   ],
+      // },
+      // {
+      //   company: "Price International",
+      //   period: "June 2020 - July 2020",
+      //   position: "Front-end developer",
+      //   project: "SPA application that manages Mobile companies.",
+      //   responsibilities: [
+      //     "Create new Vue JS project",
+      //     "Create reusable components",
+      //     "Usage of Vuex",
+      //     "Usage of routing",
+      //   ],
+      //   technologies: ["VueJS", "Vuex", "CSS3", "SASS/LESS"],
+      // },
+      //#endregion
       {
         company: "1 ForFit",
         period: "October 2019 - April 2020",
