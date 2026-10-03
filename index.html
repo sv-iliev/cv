@@ -49,7 +49,6 @@
         --light-text: #212529;
         --light-text-secondary: #6c757d;
         --light-accent: #0056b3;
-        /* Adjusted blue */
         --light-card-bg: #ffffff;
         --light-border: #dee2e6;
         --light-icon-bg: #e9ecef;
@@ -220,6 +219,10 @@
       }
 
       /* === Utility === */
+      .m-0 {
+        margin: 0;
+      }
+
       .m-b-1 {
         margin-bottom: 0.5rem !important;
       }
@@ -291,15 +294,8 @@
         /* Invert icon color on hover */
       }
 
-      /* LinkedIn icon needs specific fill */
-      .contact-holder:hover .cont-icon.linkedin-icon svg path {
-        fill: white !important;
-        /* Keep LinkedIn icon white on hover */
-      }
-
-      .contact-holder:hover .cont-icon.linkedin-icon svg rect {
-        fill: var(--accent-color) !important;
-        /* Change background rect */
+      .linkedin-icon svg rect {
+        fill: #1275b1 !important;
       }
 
       .cont-icon {
@@ -336,16 +332,6 @@
       .cont-icon svg [stroke="#dcdcdc"] {
         /* Phone icon */
         stroke: var(--text-color-secondary);
-      }
-
-      .cont-icon.linkedin-icon svg rect[fill="#1275B1"] {
-        /* LinkedIn Background */
-        fill: var(--text-color-secondary);
-      }
-
-      body.dark .cont-icon.linkedin-icon svg rect[fill="#1275B1"] {
-        fill: #1275b1;
-        /* Keep original blue in dark mode */
       }
 
       body.dark .cont-icon.linkedin-icon svg path[fill="white"] {
@@ -826,8 +812,11 @@
         />
         <h1 class="m-b-1">Svetozar Iliev</h1>
         <h2 class="m-b-1">(Zak)</h2>
-        <h4 class="m-b-2">Senior Software Developer</h4>
-        <p class="m-b-3" style="color: var(--text-color-secondary)">Bulgaria</p>
+        <h4 class="m-0">Senior Software Developer</h4>
+        <p class="m-0" style="color: var(--text-color-secondary)">
+          (Since September 2017)
+        </p>
+        <p class="m-0" style="color: var(--text-color-secondary)">Bulgaria</p>
         <!-- Use P for location -->
 
         <div class="contacts">
@@ -896,14 +885,7 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect
-                  x="2"
-                  y="2"
-                  width="28"
-                  height="28"
-                  rx="14"
-                  fill="#1275B1"
-                />
+                <rect x="2" y="2" width="28" height="28" rx="14" />
                 <path
                   d="M12.6186 9.69215C12.6186 10.6267 11.8085 11.3843 10.8093 11.3843C9.81004 11.3843 9 10.6267 9 9.69215C9 8.7576 9.81004 8 10.8093 8C11.8085 8 12.6186 8.7576 12.6186 9.69215Z"
                   fill="white"
