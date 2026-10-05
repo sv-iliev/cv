@@ -647,6 +647,11 @@
         display: none;
       }
 
+.icon {
+width: fit-content;
+ height: fit-content;
+}
+
       /* === Responsive Design === */
       @media (max-width: 800px) {
         .contacts {
