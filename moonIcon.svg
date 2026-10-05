@@ -1,0 +1,13 @@
+<svg
+          class="icon-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          width="24px"
+          height="24px"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M11.01 3.05C6.51 3.54 3 7.36 3 12c0 4.97 4.03 9 9 9 4.63 0 8.45-3.5 8.95-8.01C15.58 16.53 10 11.42 11.01 3.05z"
+          />
+        </svg>
